@@ -7,28 +7,59 @@
   <title>Framvind — forhåndsvisningsmaler</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root { --brand:#1a1a1a; --brand-ink:#950b0b; --brand-bg:#ffffff; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:Inter,system-ui,-apple-system,sans-serif; background:#f7f5f3; color:var(--brand); line-height:1.5; min-height:100dvh; padding:1.5rem 1rem 3rem; }
-    .wrap { max-width:420px; margin:0 auto; }
-    h1 { font-family:"Cormorant Garamond",Georgia,serif; font-size:1.75rem; font-weight:700; margin-bottom:0.35rem; }
-    .lead { color:#5c5752; font-size:0.95rem; margin-bottom:1.5rem; }
-    .card { display:block; background:var(--brand-bg); border-radius:12px; padding:1.15rem 1.25rem; margin-bottom:0.85rem; text-decoration:none; color:inherit; border:1px solid #e8e4e0; box-shadow:0 1px 2px rgba(26,26,26,0.04); }
-    .card strong { display:block; font-size:1.1rem; margin-bottom:0.25rem; }
-    .card span { color:#5c5752; font-size:0.9rem; }
-    .tag { display:inline-block; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--brand-ink); margin-bottom:0.35rem; }
-    footer { margin-top:2rem; font-size:0.8rem; color:#8a8580; text-align:center; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      background: #0f0f10; color: #f0f0f0;
+      line-height: 1.5; min-height: 100dvh;
+      padding: 1.5rem 1rem 3rem;
+    }
+    .wrap { max-width: 420px; margin: 0 auto; }
+    h1 { font-size: 1.45rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .lead { color: #9a9a9a; font-size: 0.92rem; margin-bottom: 1.5rem; }
+    .card {
+      display: block; border-radius: 14px; padding: 1.15rem 1.2rem;
+      margin-bottom: 0.85rem; text-decoration: none; color: inherit;
+      border: 1px solid transparent;
+    }
+    .card strong { display: block; font-size: 1.1rem; margin-bottom: 0.3rem; }
+    .card span { font-size: 0.88rem; opacity: 0.85; display: block; }
+    .swatch { display: flex; gap: 0.35rem; margin-top: 0.75rem; }
+    .swatch i { width: 18px; height: 18px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.15); }
+    .tag { display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; opacity: 0.7; }
+    .c-direkt { background: #ffffff; color: #111; border-color: #e6e6e6; }
+    .c-direkt .tag { color: #950b0b; }
+    .c-tillit { background: #f7f2ea; color: #0b1f3a; border-color: #e4d9c8; }
+    .c-tillit .tag { color: #c9a227; }
+    .c-kompakt { background: #111; color: #f2f2f2; border-color: #2a2a2a; }
+    .c-kompakt .tag { color: #b8ff3c; }
+    footer { margin-top: 2rem; font-size: 0.78rem; color: #666; text-align: center; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Forhåndsvisningsmaler</h1>
-    <p class="lead">Velg en layout — demo med Skøyen Renseri AS.</p>
-    <a class="card" href="direkt/"><div class="tag">01</div><strong>Direkt</strong><span>Hero + én knapp, tjenester, anmeldelser.</span></a>
-    <a class="card" href="tillit/"><div class="tag">02</div><strong>Tillit</strong><span>Google-stjerner og kundecitater først.</span></a>
-    <a class="card" href="kompakt/"><div class="tag">03</div><strong>Kompakt</strong><span>Telefon først, sticky Ring-bar.</span></a>
+    <h1>Tre designsystemer</h1>
+    <p class="lead">Samme demo-merke (Skøyen Renseri), tre helt ulike paletter, typografi og chrome.</p>
+    <a class="card c-direkt" href="direkt/">
+      <div class="tag">01 · Designsystem A</div>
+      <strong>Direkt</strong>
+      <span>Hvitt + nær-svart + burgunder CTA. Klassisk vertikal konvertering, sticky header.</span>
+      <div class="swatch" aria-hidden="true"><i style="background:#fff"></i><i style="background:#111"></i><i style="background:#950b0b"></i></div>
+    </a>
+    <a class="card c-tillit" href="tillit/">
+      <div class="tag">02 · Designsystem B</div>
+      <strong>Tillit</strong>
+      <span>Krempapir + marine + gull. Trust-bar først — varmt og omdømme-ledet.</span>
+      <div class="swatch" aria-hidden="true"><i style="background:#f7f2ea"></i><i style="background:#0b1f3a"></i><i style="background:#c9a227"></i></div>
+    </a>
+    <a class="card c-kompakt" href="kompakt/">
+      <div class="tag">03 · Designsystem C</div>
+      <strong>Kompakt</strong>
+      <span>Mørk nattmodus + lime CTA. Telefon som hero, sticky Ring-bar.</span>
+      <div class="swatch" aria-hidden="true"><i style="background:#0a0a0a"></i><i style="background:#111"></i><i style="background:#b8ff3c"></i></div>
+    </a>
     <footer>Utkast fra Framvind — ikke offisiell side</footer>
   </div>
 </body>

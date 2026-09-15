@@ -3,369 +3,375 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Skøyen Renseri AS — Anmeldelser &amp; tillit</title>
   <meta name="robots" content="noindex, nofollow" />
+  <title>Skøyen Renseri AS — Tillit</title>
   <link rel="icon" href="../skoyen-assets/favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0;400;0;700;1;400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --brand: #1a1a1a;
-      --brand-ink: #950b0b;
-      --brand-bg: #ffffff;
-      --muted: #5c5752;
-      --line: #e8e4e0;
-      --soft: #f7f5f3;
-      --star: #c9a227;
-      --font: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      --bg: #f7f2ea;
+      --paper: #fffdf8;
+      --ink: #0b1f3a;
+      --muted: #5c6b7a;
+      --line: #e4d9c8;
+      --gold: #c9a227;
+      --gold-soft: #f5edd4;
+      --navy-deep: #071628;
+      --radius: 12px;
+      --font: "Source Sans 3", system-ui, -apple-system, sans-serif;
+      --display: "Libre Baskerville", Georgia, "Times New Roman", serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: var(--font);
-      background: var(--brand-bg);
-      color: var(--brand);
-      line-height: 1.5;
-      padding-bottom: 5rem;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-    .wrap { max-width: 440px; margin: 0 auto; padding: 0 1rem; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { max-width: 480px; margin: 0 auto; padding: 0 1.15rem; }
 
+    /* Trust bar FIRST */
     .trust-bar {
-      background: var(--brand);
-      color: #fff;
+      background: var(--navy-deep); color: #fff;
+      padding: 0.85rem 1.15rem;
       text-align: center;
-      padding: 0.55rem 1rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      flex-wrap: wrap;
     }
-    .trust-bar .stars { color: var(--star); letter-spacing: 0.06em; }
+    .trust-bar .stars {
+      color: var(--gold); font-size: 1.15rem; letter-spacing: 0.12em;
+      margin-bottom: 0.2rem;
+    }
+    .trust-bar strong { font-size: 0.95rem; font-weight: 600; }
+    .trust-bar span { display: block; font-size: 0.8rem; color: #b8c4d4; margin-top: 0.15rem; }
 
+    /* Soft header — no sticky chrome like Direkt */
     .brand-row {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding: 1rem 1rem 0;
-      max-width: 440px;
-      margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 1.15rem 0.5rem;
+      max-width: 480px; margin: 0 auto;
     }
-    .brand-row img {
-      width: 44px; height: 44px;
-      object-fit: contain;
-      border-radius: 10px;
-      flex-shrink: 0;
+    .brand-row .logo {
+      display: flex; align-items: center; gap: 0.6rem;
     }
-    .brand-row strong {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      display: block;
+    .brand-row img { width: 42px; height: 42px; border-radius: 50%; object-fit: contain; background: var(--paper); border: 2px solid var(--line); }
+    .brand-name {
+      font-family: var(--display); font-size: 1.05rem; font-weight: 700;
     }
-    .brand-row span { font-size: 0.8rem; color: var(--muted); }
+    .night-pill {
+      font-size: 0.72rem; font-weight: 600;
+      background: var(--gold-soft); color: var(--ink);
+      border: 1px solid #e0d0a8; border-radius: 999px;
+      padding: 0.35rem 0.65rem; white-space: nowrap;
+    }
 
+    /* Hero — trust promise */
     .hero {
-      padding: 1.25rem 1rem 1.5rem;
-      max-width: 440px;
-      margin: 0 auto;
+      max-width: 480px; margin: 0 auto;
+      padding: 1.25rem 1.15rem 1.5rem;
+      text-align: center;
     }
-    h1 {
-      font-family: var(--font-display);
-      font-size: 1.7rem;
-      line-height: 1.2;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .hero > p {
-      color: var(--muted);
-      margin-bottom: 1.15rem;
-      font-size: 1rem;
-    }
-    .actions {
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      min-height: 52px;
-      padding: 0.85rem 1.25rem;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 1.05rem;
-      text-decoration: none !important;
-      border: 2px solid transparent;
-      cursor: pointer;
-      width: 100%;
-      font-family: inherit;
-    }
-    .btn-primary {
-      background: var(--brand-ink);
-      color: #fff !important;
-      box-shadow: 0 4px 14px rgba(149, 11, 11, 0.28);
-    }
-    .btn-secondary {
-      background: transparent;
-      color: var(--brand) !important;
-      border-color: var(--line);
-    }
-
-    section { padding: 1.5rem 0; }
-    section.soft { background: var(--soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    h2 {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .svc-list { list-style: none; }
-    .svc-list li {
-      display: flex;
-      gap: 0.85rem;
-      align-items: flex-start;
-      padding: 0.85rem 0;
-      border-bottom: 1px solid var(--line);
-    }
-    .svc-list li:last-child { border-bottom: none; }
-    .svc-ico {
-      width: 48px; height: 48px;
-      border-radius: 10px;
-      overflow: hidden;
-      flex-shrink: 0;
-      background: var(--soft);
-    }
-    .svc-ico img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .svc-list strong { display: block; font-size: 0.95rem; }
-    .svc-list p { font-size: 0.85rem; color: var(--muted); }
-
-    .review-card {
-      background: var(--brand-bg);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 1.1rem;
+    .hero h1 {
+      font-family: var(--display);
+      font-size: clamp(1.55rem, 5.5vw, 1.95rem);
+      font-weight: 700; line-height: 1.3;
       margin-bottom: 0.75rem;
-      box-shadow: 0 1px 3px rgba(26, 26, 26, 0.04);
     }
-    .review-card .stars { color: var(--star); margin-bottom: 0.4rem; letter-spacing: 0.05em; }
-    .review-card p { font-size: 0.95rem; }
-    .review-card .who {
-      margin-top: 0.65rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--muted);
+    .hero .lead {
+      color: var(--muted); font-size: 1.02rem; margin-bottom: 1.35rem;
+      max-width: 28rem; margin-left: auto; margin-right: auto;
     }
-    .review-reply {
-      margin-top: 0.75rem;
-      padding-top: 0.65rem;
-      border-top: 1px solid var(--line);
-      font-size: 0.85rem;
-      color: var(--muted);
+    .cta-row { display: flex; flex-direction: column; gap: 0.6rem; }
+    .btn-gold {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 56px; width: 100%;
+      background: var(--ink); color: #fff;
+      font-weight: 700; font-size: 1.08rem;
+      border: none; border-radius: 999px; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(11,31,58,0.22);
     }
-    .review-reply strong { color: var(--brand); }
-    .g-note {
-      font-size: 0.8rem;
-      color: var(--muted);
+    .btn-outline {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 48px; width: 100%;
+      background: transparent; color: var(--ink);
+      font-weight: 600; font-size: 0.95rem;
+      border: 1.5px solid var(--ink); border-radius: 999px;
+    }
+
+    /* Quote block */
+    .quotes {
+      padding: 0.5rem 0 1.75rem;
+    }
+    .quote-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.2rem;
+      margin-bottom: 0.85rem;
+      box-shadow: 0 2px 8px rgba(11,31,58,0.04);
+    }
+    .quote-card .q-stars { color: var(--gold); letter-spacing: 0.08em; margin-bottom: 0.55rem; font-size: 0.95rem; }
+    .quote-card blockquote {
+      font-family: var(--display); font-style: italic;
+      font-size: 1.05rem; line-height: 1.45;
+      margin-bottom: 0.65rem;
+    }
+    .quote-card .meta { font-size: 0.8rem; color: var(--muted); }
+    .quote-note {
+      font-size: 0.78rem; color: var(--muted); text-align: center;
       margin-top: 0.25rem;
     }
 
-    .booking {
-      background: var(--brand);
-      color: #fff;
-      border-radius: 14px;
-      padding: 1.25rem;
+    /* Services as simple list */
+    .services {
+      padding: 1.5rem 0 1.75rem;
+      border-top: 1px solid var(--line);
     }
-    .booking h2 { color: #fff; }
-    .booking p { opacity: 0.9; font-size: 0.95rem; margin-bottom: 0.35rem; }
-    .booking a.phone {
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.15rem;
-      text-decoration: none;
-      display: inline-block;
-      min-height: 44px;
-      line-height: 44px;
+    .services h2 {
+      font-family: var(--display); font-size: 1.35rem;
+      text-align: center; margin-bottom: 1.1rem;
     }
-    .booking .btn-primary { margin-top: 1rem; }
+    .svc-list { list-style: none; }
+    .svc-list li {
+      display: flex; align-items: center; gap: 0.9rem;
+      background: var(--paper); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 0.85rem 1rem;
+      margin-bottom: 0.6rem;
+    }
+    .svc-list img {
+      width: 56px; height: 56px; border-radius: 10px; object-fit: cover; flex-shrink: 0;
+    }
+    .svc-list strong { display: block; font-size: 0.98rem; }
+    .svc-list span { font-size: 0.85rem; color: var(--muted); }
 
-    footer.site {
+    /* Review loop — warm card */
+    .loop-section { padding: 0 0 1.75rem; }
+    .loop-card {
+      background: var(--gold-soft);
+      border: 1px solid #e0d0a8;
+      border-radius: var(--radius);
+      padding: 1.2rem 1.15rem;
+    }
+    .loop-card h2 {
+      font-family: var(--display); font-size: 1.15rem; margin-bottom: 0.55rem;
+    }
+    .loop-card ol { margin-left: 1.2rem; font-size: 0.92rem; color: var(--ink); }
+    .loop-card li { margin-bottom: 0.4rem; }
+
+    /* Booking */
+    .booking-section {
+      background: var(--ink); color: #fff;
+      padding: 2rem 0 2.25rem;
+    }
+    .booking-section h2 {
+      font-family: var(--display); font-size: 1.45rem;
+      text-align: center; margin-bottom: 0.4rem;
+    }
+    .booking-section .sub {
+      text-align: center; color: #a8b8cc; font-size: 0.92rem; margin-bottom: 1.25rem;
+    }
+    .book-form {
+      background: var(--navy-deep); border-radius: var(--radius);
+      padding: 1.2rem; border: 1px solid #1a3355;
+    }
+    .form-row { margin-bottom: 0.75rem; }
+    .form-row label { display: block; font-size: 0.78rem; font-weight: 600; color: #b8c4d4; margin-bottom: 0.3rem; }
+    .form-row input, .form-row select, .form-row textarea {
+      width: 100%; min-height: 46px; padding: 0.65rem 0.8rem;
+      border: 1px solid #2a4466; border-radius: 8px;
+      background: #0b1f3a; color: #fff; font: inherit;
+    }
+    .form-row textarea { min-height: 72px; resize: vertical; }
+    .book-form .btn-gold {
+      background: var(--gold); color: var(--ink); margin-top: 0.25rem;
+    }
+    .book-note { text-align: center; font-size: 0.75rem; color: #7a8fa8; margin-top: 0.75rem; }
+
+    /* Contact strip */
+    .contact {
+      padding: 1.75rem 0;
       text-align: center;
-      padding: 1.5rem 1rem 2rem;
-      font-size: 0.75rem;
-      color: #8a8580;
+    }
+    .contact h2 { font-family: var(--display); font-size: 1.25rem; margin-bottom: 1rem; }
+    .contact p { margin-bottom: 0.45rem; font-size: 0.95rem; }
+    .contact a { color: var(--ink); font-weight: 700; border-bottom: 1px solid var(--gold); }
+    .contact .kveld { font-size: 0.85rem; color: var(--muted); margin-top: 0.65rem; }
+
+    footer.site-footer {
+      text-align: center; padding: 1.25rem 1rem 2rem;
+      font-size: 0.78rem; color: #8a7f6e;
+      border-top: 1px solid var(--line);
     }
 
-    .chat-fab, .chat-panel {
-      position: fixed;
-      z-index: 40;
-      right: 1rem;
-      bottom: 1rem;
-      font-family: inherit;
-    }
+    /* Chat — warm style */
     .chat-fab {
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      background: var(--brand);
-      color: #fff;
-      border: none;
-      box-shadow: 0 6px 20px rgba(26, 26, 26, 0.3);
-      cursor: pointer;
-      font-size: 1.35rem;
-      display: grid;
-      place-items: center;
+      position: fixed; bottom: 1.15rem; right: 1.15rem; z-index: 50;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--ink); color: var(--gold); border: 2px solid var(--gold);
+      box-shadow: 0 6px 20px rgba(11,31,58,0.35);
+      cursor: pointer; font-size: 1.35rem;
+      display: flex; align-items: center; justify-content: center;
     }
     .chat-panel {
-      width: min(320px, calc(100vw - 2rem));
-      background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 12px 40px rgba(26, 26, 26, 0.18);
-      border: 1px solid var(--line);
-      overflow: hidden;
-      display: none;
+      display: none; position: fixed; bottom: 5.2rem; right: 1rem; z-index: 51;
+      width: min(340px, calc(100vw - 2rem));
+      background: var(--paper); border: 1px solid var(--line); border-radius: 14px;
+      box-shadow: 0 12px 40px rgba(11,31,58,0.2); overflow: hidden;
     }
-    .chat-panel.open { display: block; }
+    .chat-panel.open { display: flex; flex-direction: column; }
     .chat-head {
-      background: var(--brand);
-      color: #fff;
-      padding: 0.65rem 0.75rem 0.65rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.75rem 0.9rem; background: var(--ink); color: #fff;
+      font-weight: 600; font-size: 0.9rem;
     }
-    .chat-head strong { font-size: 0.95rem; }
-    .chat-close {
-      background: transparent;
-      border: none;
-      color: #fff;
-      font-size: 1.35rem;
-      cursor: pointer;
-      min-width: 44px;
-      min-height: 44px;
+    .chat-head button {
+      background: transparent; border: none; color: #fff;
+      font-size: 1.25rem; cursor: pointer; width: 36px; height: 36px;
     }
-    .chat-body { padding: 1rem; font-size: 0.9rem; color: var(--muted); }
-    .chat-body .msg {
-      background: var(--soft);
-      padding: 0.75rem;
-      border-radius: 10px;
-      margin-bottom: 0.75rem;
+    .chat-body { padding: 0.9rem; font-size: 0.88rem; }
+    .chat-body .bubble {
+      background: var(--gold-soft); border-radius: 10px; padding: 0.7rem 0.85rem;
+      border: 1px solid #e0d0a8; color: var(--ink);
     }
-    .chat-body input {
-      width: 100%;
-      min-height: 44px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 0.5rem 0.75rem;
-      font: inherit;
+    .chat-actions { display: flex; flex-direction: column; gap: 0.45rem; padding: 0 0.9rem 0.9rem; }
+    .chat-actions a {
+      display: block; text-align: center; min-height: 44px; line-height: 44px;
+      border-radius: 999px; font-weight: 600; font-size: 0.9rem;
     }
+    .chat-actions .ring { background: var(--ink); color: #fff; }
+    .chat-actions .msg { border: 1.5px solid var(--ink); }
   </style>
 </head>
 <body>
+  <!-- Trust bar first -->
   <div class="trust-bar">
-    <span class="stars" aria-hidden="true">★★★★★</span>
-    <span>5,0 · 2 anmeldelser på Google</span>
+    <div class="stars" aria-hidden="true">★★★★★</div>
+    <strong>5,0★ på Google</strong>
+    <span>2 anmeldelser — ekte Google-vurdering</span>
   </div>
 
   <div class="brand-row">
-    <img src="../skoyen-assets/logo.png" alt="" width="44" height="44" />
-    <div>
-      <strong>Skøyen Renseri AS</strong>
-      <span>Renseri · Skøyen · Hoff</span>
-    </div>
+    <a class="logo" href="#">
+      <img src="../skoyen-assets/logo.png" alt="" width="42" height="42" />
+      <span class="brand-name">Skøyen Renseri AS</span>
+    </a>
+    <span class="night-pill">Vi svarer også på kvelden</span>
   </div>
 
   <section class="hero">
-    <h1>Enklere, renere, bedre</h1>
-    <p>5 av 5 på Google. Vi renser og vasker — og gjør det enkelt å ringe eller bestille henting.</p>
-    <div class="actions">
-      <a class="btn btn-primary" href="tel:+4748399744">Ring 483 99 744</a>
-      <a class="btn btn-secondary" href="#bestill">Bestill henting</a>
+    <h1>Folk kommer tilbake fordi de stoler på oss</h1>
+    <p class="lead">Rens, vask og henting for hjem og bedrift på Skøyen — med oppfølging etter hver jobb.</p>
+    <div class="cta-row">
+      <a class="btn-gold" href="tel:+4748399744">Ring 483 99 744</a>
+      <a class="btn-outline" href="#bestill">Bestill henting</a>
     </div>
   </section>
 
-  <section>
+  <section class="quotes">
     <div class="wrap">
-      <h2>Hva vi gjør</h2>
+      <div class="quote-card">
+        <div class="q-stars" aria-hidden="true">★★★★★</div>
+        <blockquote>«Plassholder — ekte kundetekst legges inn når mer finnes.»</blockquote>
+        <div class="meta">Google · 5,0★ · eksempeltekst</div>
+      </div>
+      <div class="quote-card">
+        <div class="q-stars" aria-hidden="true">★★★★★</div>
+        <blockquote>«Plassholder — ikke sitert fra Google.»</blockquote>
+        <div class="meta">Google · 5,0★ · eksempeltekst</div>
+      </div>
+      <p class="quote-note">Vi har 2 Google-anmeldelser med snitt 5,0★. Sitater over er merket som plassholdere.</p>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="wrap">
+      <h2>Det vi gjør</h2>
       <ul class="svc-list">
         <li>
-          <span class="svc-ico" aria-hidden="true"><img src="../skoyen-assets/service-dyner.webp" alt="" /></span>
-          <div>
-            <strong>Rens &amp; vask</strong>
-            <p>Klær, duker, sengetøy, gardiner, dyner og tepper.</p>
-          </div>
+          <img src="../skoyen-assets/service-skjorte.webp" alt="" />
+          <div><strong>Skjorter og finere tøy</strong><span>Press, fold og klar til bruk</span></div>
         </li>
         <li>
-          <span class="svc-ico" aria-hidden="true"><img src="../skoyen-assets/service-uniformer.webp" alt="" /></span>
-          <div>
-            <strong>Bedriftsavtaler</strong>
-            <p>Uniformer og arbeidsklær med forutsigbar henting.</p>
-          </div>
+          <img src="../skoyen-assets/service-dyner.webp" alt="" />
+          <div><strong>Dyner og tepper</strong><span>Skånsom og grundig vask</span></div>
         </li>
         <li>
-          <span class="svc-ico" aria-hidden="true"><img src="../skoyen-assets/service-skjorte.webp" alt="" /></span>
-          <div>
-            <strong>Skjorteabonnement</strong>
-            <p>Rene, strøkne skjorter uten stress.</p>
-          </div>
+          <img src="../skoyen-assets/service-uniformer.webp" alt="" />
+          <div><strong>Uniformer til bedrift</strong><span>Fast henting etter avtale</span></div>
         </li>
       </ul>
     </div>
   </section>
 
-  <section class="soft">
+  <section class="loop-section">
     <div class="wrap">
-      <h2>Hva kunder sier</h2>
-      <article class="review-card">
-        <div class="stars" aria-hidden="true">★★★★★</div>
-        <p>«Raskt, greit og fint resultat på dressen. Lett å komme til fra Hoff.»</p>
-        <div class="who">Eksempel · Google · 5/5</div>
-        <div class="review-reply">
-          <strong>Svar fra Skøyen Renseri:</strong>
-          Takk for hyggelige ord — velkommen tilbake!
-        </div>
-      </article>
-      <article class="review-card">
-        <div class="stars" aria-hidden="true">★★★★★</div>
-        <p>«Skjorteabonnementet sparer meg for tid. Henting fungerer bra.»</p>
-        <div class="who">Eksempel · Google · 5/5</div>
-        <div class="review-reply">
-          <strong>Svar fra Skøyen Renseri:</strong>
-          Flott å høre. Si ifra om du vil justere avtalen.
-        </div>
-      </article>
-      <p class="g-note">På Google Maps har Skøyen Renseri AS 5★ (2 anmeldelser). Kortene viser hvordan svar kan se ut.</p>
-    </div>
-  </section>
-
-  <section id="bestill">
-    <div class="wrap">
-      <div class="booking">
-        <h2>Bestill henting eller ring</h2>
-        <p><a class="phone" href="tel:+4748399744">483 99 744</a></p>
-        <p>Hoffsveien 10, 0275 Oslo</p>
-        <p>Man–fre 09:30–17:30 · lør 10–15</p>
-        <a class="btn btn-primary" href="tel:+4748399744">Ring for henting</a>
+      <div class="loop-card">
+        <h2>Etter jobben — slik bygger vi tillit</h2>
+        <ol>
+          <li>Du får en SMS og kan gi poeng fra 1 til 5.</li>
+          <li>Gir du 4 eller 5, ber vi deg om en Google-anmeldelse.</li>
+          <li>Gir du 1–3, tar vi kontakt privat og retter opp.</li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <footer class="site">Utkast fra Framvind — ikke offisiell side</footer>
+  <section class="booking-section" id="bestill">
+    <div class="wrap">
+      <h2>Bestill henting</h2>
+      <p class="sub">Vi bekrefter tid på telefon.</p>
+      <form class="book-form" onsubmit="event.preventDefault(); alert('Takk! Dette er en demoside — ring 483 99 744 for å bestille.');">
+        <div class="form-row">
+          <label for="t-name">Navn</label>
+          <input id="t-name" type="text" placeholder="Ditt navn" autocomplete="name" />
+        </div>
+        <div class="form-row">
+          <label for="t-phone">Telefon</label>
+          <input id="t-phone" type="tel" placeholder="Mobilnummer" autocomplete="tel" />
+        </div>
+        <div class="form-row">
+          <label for="t-what">Hva skal hentes?</label>
+          <select id="t-what">
+            <option>Skjorter / tøy</option>
+            <option>Dyner / tepper</option>
+            <option>Uniformer</option>
+            <option>Annet</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-gold">Send forespørsel</button>
+        <p class="book-note">Demo-skjema — ingen data sendes.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap">
+      <h2>Kontakt</h2>
+      <p><a href="tel:+4748399744">483 99 744</a></p>
+      <p>Hoffsveien 10, 0275 Oslo</p>
+      <p><a href="mailto:post@skoyenrenseri.no">post@skoyenrenseri.no</a></p>
+      <p class="kveld">🌙 Vi svarer også på kvelden — ubesvarte anrop følges opp</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">Utkast fra Framvind — ikke offisiell side</footer>
 
   <button type="button" class="chat-fab" id="chatOpen" aria-label="Åpne chat">💬</button>
   <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Chat">
     <div class="chat-head">
-      <strong>Chat med Skøyen Renseri</strong>
-      <button type="button" class="chat-close" id="chatClose" aria-label="Lukk chat">×</button>
+      <span>Spør oss</span>
+      <button type="button" id="chatClose" aria-label="Lukk chat">×</button>
     </div>
     <div class="chat-body">
-      <div class="msg">Hei! Fortell kort hva du trenger — rens, dyner, skjorte eller bedrift.</div>
-      <input type="text" placeholder="Skriv en melding…" aria-label="Melding" />
+      <div class="bubble">Hei! Har du spørsmål om henting eller rens? Ring — vi svarer også på kvelden.</div>
+    </div>
+    <div class="chat-actions">
+      <a class="ring" href="tel:+4748399744">Ring 483 99 744</a>
+      <a class="msg" href="#bestill" id="chatToBook">Bestill henting</a>
     </div>
   </div>
 
@@ -374,14 +380,12 @@
       var fab = document.getElementById('chatOpen');
       var panel = document.getElementById('chatPanel');
       var close = document.getElementById('chatClose');
-      fab.addEventListener('click', function () {
-        panel.classList.add('open');
-        fab.style.display = 'none';
-      });
-      close.addEventListener('click', function () {
-        panel.classList.remove('open');
-        fab.style.display = 'grid';
-      });
+      var toBook = document.getElementById('chatToBook');
+      function open() { panel.classList.add('open'); fab.style.display = 'none'; }
+      function shut() { panel.classList.remove('open'); fab.style.display = 'flex'; }
+      fab.addEventListener('click', open);
+      close.addEventListener('click', shut);
+      toBook.addEventListener('click', shut);
     })();
   </script>
 </body>

@@ -3,354 +3,358 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Skøyen Renseri — Ring oss</title>
   <meta name="robots" content="noindex, nofollow" />
+  <title>Skøyen Renseri AS — Kompakt</title>
   <link rel="icon" href="../skoyen-assets/favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --brand: #1a1a1a;
-      --brand-ink: #950b0b;
-      --brand-bg: #ffffff;
-      --muted: #5c5752;
-      --line: #e8e4e0;
-      --soft: #f7f5f3;
-      --font: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --surface2: #1a1a1a;
+      --ink: #f2f2f2;
+      --muted: #9a9a9a;
+      --line: #2a2a2a;
+      --lime: #b8ff3c;
+      --lime-dim: #8fcc2a;
+      --lime-ink: #0a0a0a;
+      --radius: 14px;
+      --font: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, monospace;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: var(--font);
-      background: var(--brand-bg);
-      color: var(--brand);
+      background: var(--bg);
+      color: var(--ink);
       line-height: 1.45;
-      padding-bottom: 5.5rem;
-      min-height: 100dvh;
       -webkit-font-smoothing: antialiased;
+      min-height: 100dvh;
+      padding-bottom: 5.5rem;
     }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { max-width: 420px; margin: 0 auto; padding: 0 1.1rem; }
 
+    /* Mini header — almost no nav */
     .mini-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 1.15rem;
-      max-width: 400px;
-      margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.85rem 1.1rem;
+      max-width: 420px; margin: 0 auto;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      color: inherit;
+    .mini-header img { width: 32px; height: 32px; border-radius: 6px; object-fit: contain; }
+    .mini-header .brand { font-weight: 600; font-size: 0.85rem; color: var(--muted); letter-spacing: 0.02em; }
+    .night-badge {
+      font-family: var(--mono); font-size: 0.65rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      background: var(--surface2); color: var(--lime);
+      border: 1px solid #3a4a1a; border-radius: 6px;
+      padding: 0.35rem 0.55rem;
     }
-    .logo img {
-      width: 36px; height: 36px;
-      object-fit: contain;
-      border-radius: 8px;
-    }
-    .mini-stars {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--muted);
-    }
-    .mini-stars .s { color: #c9a227; }
 
-    .hero {
+    /* Phone as hero */
+    .hero-phone {
       text-align: center;
-      padding: 1.5rem 1.15rem 0.5rem;
-      max-width: 400px;
-      margin: 0 auto;
+      padding: 2rem 1.1rem 1.5rem;
+      max-width: 420px; margin: 0 auto;
     }
-    .hero .label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--muted);
-      margin-bottom: 0.35rem;
+    .hero-phone .label {
+      font-family: var(--mono); font-size: 0.7rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--lime); margin-bottom: 0.75rem;
     }
-    .hero .phone {
+    .hero-phone .phone-num {
       display: block;
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 9vw, 2.6rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--brand);
-      text-decoration: none;
-      line-height: 1.1;
-      min-height: 56px;
-      padding: 0.25rem 0;
+      font-family: var(--mono);
+      font-size: clamp(2.4rem, 11vw, 3.1rem);
+      font-weight: 600; line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      min-height: 64px;
+      padding: 0.35rem 0;
     }
-    .hero .phone:active { color: var(--brand-ink); }
-    .hero .tagline {
-      margin-top: 0.5rem;
-      font-size: 1rem;
-      color: var(--muted);
+    .hero-phone .phone-num:active { color: var(--lime); }
+    .hero-phone .tagline {
+      color: var(--muted); font-size: 1rem; margin-bottom: 1.5rem;
+    }
+    .btn-lime {
+      display: flex; align-items: center; justify-content: center; gap: 0.45rem;
+      width: 100%; min-height: 58px;
+      background: var(--lime); color: var(--lime-ink);
+      font-weight: 700; font-size: 1.15rem;
+      border: none; border-radius: 999px; cursor: pointer;
+      box-shadow: 0 0 28px rgba(184,255,60,0.28);
+    }
+    .btn-ghost {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; min-height: 48px; margin-top: 0.65rem;
+      background: transparent; color: var(--ink);
+      font-weight: 600; font-size: 0.95rem;
+      border: 1.5px solid var(--line); border-radius: 999px;
     }
 
+    /* 3 bullets */
     .bullets {
-      list-style: none;
-      max-width: 400px;
-      margin: 1.25rem auto 0;
-      padding: 0 1.15rem;
+      max-width: 420px; margin: 0 auto;
+      padding: 0.5rem 1.1rem 1.5rem;
     }
+    .bullets ul { list-style: none; }
     .bullets li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.65rem;
-      padding: 0.55rem 0;
-      font-size: 0.95rem;
-      font-weight: 500;
+      display: flex; align-items: flex-start; gap: 0.85rem;
+      padding: 0.95rem 1rem;
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); margin-bottom: 0.55rem;
     }
-    .bullets li::before {
-      content: "";
-      width: 22px; height: 22px;
-      border-radius: 50%;
-      background: var(--brand-ink);
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
-      background-size: 14px;
-      background-repeat: no-repeat;
-      background-position: center;
+    .bullets .mark {
+      flex-shrink: 0; width: 28px; height: 28px;
+      background: var(--lime); color: var(--lime-ink);
+      border-radius: 50%; font-weight: 700; font-size: 0.85rem;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 0.05rem;
     }
+    .bullets strong { display: block; font-size: 0.98rem; margin-bottom: 0.15rem; }
+    .bullets span { font-size: 0.85rem; color: var(--muted); }
 
-    .actions {
-      max-width: 400px;
-      margin: 1.35rem auto 0;
-      padding: 0 1.15rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
+    /* Google + review loop — compact dark cards */
+    .trust-block {
+      max-width: 420px; margin: 0 auto;
+      padding: 0 1.1rem 1.25rem;
     }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      min-height: 54px;
-      padding: 0.9rem 1.25rem;
-      border-radius: 10px;
-      font-weight: 750;
-      font-size: 1.1rem;
-      text-decoration: none !important;
-      border: 2px solid transparent;
-      cursor: pointer;
-      width: 100%;
-      font-family: inherit;
-    }
-    .btn-primary {
-      background: var(--brand-ink);
-      color: #fff !important;
-      box-shadow: 0 4px 16px rgba(149, 11, 11, 0.3);
-    }
-    .btn-secondary {
-      background: var(--brand-bg);
-      color: var(--brand) !important;
-      border-color: var(--line);
-    }
-
-    .adresse {
-      max-width: 400px;
-      margin: 1.5rem auto 0;
-      padding: 0 1.15rem;
-    }
-    .map-block {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      overflow: hidden;
-      background: var(--soft);
-    }
-    .map-fake {
-      height: 110px;
-      background:
-        linear-gradient(105deg, rgba(247,245,243,0.7), rgba(26,26,26,0.15)),
-        url("../skoyen-assets/hero.jpg") center/cover no-repeat;
-      position: relative;
-    }
-    .map-pin {
-      position: absolute;
-      left: 50%;
-      top: 42%;
-      width: 28px;
-      height: 28px;
-      background: var(--brand-ink);
-      border-radius: 50% 50% 50% 0;
-      transform: translate(-50%, -100%) rotate(-45deg);
-      box-shadow: 0 2px 8px rgba(26, 26, 26, 0.25);
-    }
-    .map-pin::after {
-      content: "";
-      position: absolute;
-      inset: 7px;
-      background: #fff;
-      border-radius: 50%;
-    }
-    .addr-text {
-      padding: 0.9rem 1rem;
-      font-size: 0.9rem;
-    }
-    .addr-text strong { display: block; margin-bottom: 0.15rem; }
-    .addr-text span { color: var(--muted); }
-
-    footer.site {
-      text-align: center;
-      padding: 1.75rem 1rem 1rem;
-      font-size: 0.75rem;
-      color: #8a8580;
-    }
-
-    .sticky-bar {
-      position: fixed;
-      left: 0; right: 0; bottom: 0;
-      z-index: 30;
-      background: var(--brand);
-      padding: 0.65rem 1rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
-      box-shadow: 0 -4px 20px rgba(26, 26, 26, 0.2);
-    }
-    .sticky-bar a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      max-width: 400px;
-      margin: 0 auto;
-      min-height: 48px;
-      background: var(--brand-ink);
-      color: #fff;
-      font-weight: 750;
-      font-size: 1.05rem;
-      text-decoration: none;
-      border-radius: 10px;
-    }
-
-    .chat-fab {
-      position: fixed;
-      z-index: 35;
-      right: 1rem;
-      bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      background: var(--brand);
-      color: #fff;
-      border: 2px solid #fff;
-      box-shadow: 0 6px 18px rgba(26, 26, 26, 0.3);
-      cursor: pointer;
-      font-size: 1.25rem;
-      display: grid;
-      place-items: center;
-      font-family: inherit;
-    }
-    .chat-panel {
-      position: fixed;
-      z-index: 45;
-      right: 1rem;
-      bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
-      width: min(300px, calc(100vw - 2rem));
-      background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 12px 40px rgba(26, 26, 26, 0.2);
-      border: 1px solid var(--line);
-      overflow: hidden;
-      display: none;
-      font-family: inherit;
-    }
-    .chat-panel.open { display: block; }
-    .chat-head {
-      background: var(--brand);
-      color: #fff;
-      padding: 0.55rem 0.65rem 0.55rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .chat-head strong { font-size: 0.9rem; }
-    .chat-close {
-      background: transparent;
-      border: none;
-      color: #fff;
-      font-size: 1.35rem;
-      cursor: pointer;
-      min-width: 44px;
-      min-height: 44px;
-    }
-    .chat-body { padding: 0.9rem; font-size: 0.875rem; color: var(--muted); }
-    .chat-body .msg {
-      background: var(--soft);
-      padding: 0.7rem;
-      border-radius: 10px;
+    .google-row {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 0.95rem 1rem;
       margin-bottom: 0.65rem;
     }
-    .chat-body input {
-      width: 100%;
-      min-height: 44px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 0.5rem 0.75rem;
-      font: inherit;
+    .google-row .stars { color: var(--lime); letter-spacing: 0.06em; font-size: 1rem; }
+    .google-row strong { font-size: 0.95rem; }
+    .google-row small { display: block; color: var(--muted); font-size: 0.78rem; }
+
+    .loop-card {
+      background: var(--surface2); border: 1px solid var(--line);
+      border-left: 3px solid var(--lime);
+      border-radius: var(--radius); padding: 1rem 1.05rem;
     }
+    .loop-card h2 {
+      font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem;
+      font-family: var(--mono); letter-spacing: 0.02em;
+    }
+    .loop-card ol { margin-left: 1.1rem; font-size: 0.85rem; color: var(--muted); }
+    .loop-card li { margin-bottom: 0.35rem; }
+
+    /* Booking — modal-looking block */
+    .booking {
+      max-width: 420px; margin: 0 auto;
+      padding: 0.5rem 1.1rem 1.5rem;
+    }
+    .booking-box {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 16px; padding: 1.25rem 1.1rem;
+      box-shadow: 0 0 0 1px rgba(184,255,60,0.08);
+    }
+    .booking-box h2 {
+      font-size: 1.15rem; font-weight: 700; margin-bottom: 0.25rem;
+    }
+    .booking-box .sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    .form-row { margin-bottom: 0.7rem; }
+    .form-row label {
+      display: block; font-family: var(--mono); font-size: 0.68rem;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted); margin-bottom: 0.3rem;
+    }
+    .form-row input, .form-row select {
+      width: 100%; min-height: 48px; padding: 0.65rem 0.8rem;
+      border: 1px solid var(--line); border-radius: 10px;
+      background: var(--bg); color: var(--ink); font: inherit; font-size: 1rem;
+    }
+    .form-row input:focus, .form-row select:focus {
+      outline: none; border-color: var(--lime);
+    }
+    .booking-box .btn-lime { margin-top: 0.35rem; border-radius: 10px; }
+    .book-note { text-align: center; font-size: 0.72rem; color: #666; margin-top: 0.7rem; }
+
+    /* Address */
+    .adresse {
+      max-width: 420px; margin: 0 auto;
+      padding: 0 1.1rem 1.5rem;
+      text-align: center;
+    }
+    .adresse p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.35rem; }
+    .adresse a { color: var(--lime); font-weight: 600; }
+
+    footer.site-footer {
+      text-align: center; padding: 1rem 1rem 1.5rem;
+      font-size: 0.75rem; color: #555;
+      border-top: 1px solid var(--line);
+      max-width: 420px; margin: 0 auto;
+    }
+
+    /* Sticky bottom Ring bar */
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 45;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line);
+      padding: 0.65rem 1rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
+    }
+    .sticky-bar a {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      max-width: 420px; margin: 0 auto;
+      min-height: 52px;
+      background: var(--lime); color: var(--lime-ink);
+      font-weight: 700; font-size: 1.05rem;
+      border-radius: 999px;
+    }
+
+    /* Floating chat */
+    .chat-fab {
+      position: fixed; bottom: 5.4rem; right: 1rem; z-index: 50;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--surface2); color: var(--lime);
+      border: 1.5px solid var(--lime);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      cursor: pointer; font-size: 1.25rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .chat-panel {
+      display: none; position: fixed; bottom: 9.2rem; right: 1rem; z-index: 51;
+      width: min(320px, calc(100vw - 2rem));
+      background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.55); overflow: hidden;
+    }
+    .chat-panel.open { display: flex; flex-direction: column; }
+    .chat-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.7rem 0.85rem; background: var(--surface2);
+      border-bottom: 1px solid var(--line);
+      font-weight: 600; font-size: 0.88rem; color: var(--lime);
+      font-family: var(--mono);
+    }
+    .chat-head button {
+      background: transparent; border: none; color: var(--ink);
+      font-size: 1.3rem; cursor: pointer; width: 36px; height: 36px;
+    }
+    .chat-body { padding: 0.85rem; font-size: 0.85rem; color: var(--muted); }
+    .chat-body .bubble {
+      background: var(--bg); border: 1px solid var(--line);
+      border-radius: 10px; padding: 0.7rem 0.8rem; color: var(--ink);
+    }
+    .chat-actions { display: flex; flex-direction: column; gap: 0.4rem; padding: 0 0.85rem 0.85rem; }
+    .chat-actions a {
+      display: block; text-align: center; min-height: 42px; line-height: 42px;
+      border-radius: 999px; font-weight: 600; font-size: 0.88rem;
+    }
+    .chat-actions .ring { background: var(--lime); color: var(--lime-ink); }
+    .chat-actions .msg { border: 1px solid var(--line); color: var(--ink); }
   </style>
 </head>
 <body>
-  <header class="mini-header">
-    <a class="logo" href="#">
-      <img src="../skoyen-assets/logo.png" alt="" width="36" height="36" />
-      Skøyen Renseri
-    </a>
-    <span class="mini-stars"><span class="s">★</span> 5,0 · Skøyen</span>
-  </header>
+  <div class="mini-header">
+    <div style="display:flex;align-items:center;gap:0.5rem">
+      <img src="../skoyen-assets/logo.png" alt="" width="32" height="32" />
+      <span class="brand">Skøyen Renseri</span>
+    </div>
+    <span class="night-badge">Kveld ✓</span>
+  </div>
 
-  <section class="hero">
-    <p class="label">Renseri — ring direkte</p>
-    <a class="phone" href="tel:+4748399744">483 99 744</a>
-    <p class="tagline">Rens, vask og henting på Skøyen.</p>
+  <section class="hero-phone">
+    <p class="label">Ring nå — vi svarer også på kvelden</p>
+    <a class="phone-num" href="tel:+4748399744">483 99 744</a>
+    <p class="tagline">Rens · dyner · uniformer · henting</p>
+    <a class="btn-lime" href="tel:+4748399744">Ring nå</a>
+    <a class="btn-ghost" href="#bestill">Bestill henting</a>
   </section>
 
-  <ul class="bullets">
-    <li>Rens &amp; vask — klær, dyner, gardiner</li>
-    <li>Bedriftsavtaler og skjorteabonnement</li>
-    <li>Ved Hoff stasjon — Hoffsveien 10</li>
-  </ul>
+  <section class="bullets">
+    <ul>
+      <li>
+        <span class="mark">1</span>
+        <div><strong>Henting og levering</strong><span>Vi henter hjemme eller på jobb</span></div>
+      </li>
+      <li>
+        <span class="mark">2</span>
+        <div><strong>Skjorter, dyner, uniformer</strong><span>Fast kvalitet — klart når avtalt</span></div>
+      </li>
+      <li>
+        <span class="mark">3</span>
+        <div><strong>Ubesvarte anrop følges opp</strong><span>Night rescue — du blir ikke glemt</span></div>
+      </li>
+    </ul>
+  </section>
 
-  <div class="actions">
-    <a class="btn btn-primary" href="tel:+4748399744">Ring nå</a>
-    <a class="btn btn-secondary" href="#" id="sendMsg">Send melding</a>
-  </div>
-
-  <div class="adresse">
-    <div class="map-block">
-      <div class="map-fake" aria-hidden="true"><span class="map-pin"></span></div>
-      <div class="addr-text">
-        <strong>Skøyen Renseri AS</strong>
-        <span>Hoffsveien 10, 0275 Oslo · Man–fre 09:30–17:30 · lør 10–15</span>
+  <section class="trust-block">
+    <div class="google-row">
+      <div>
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <strong>5,0 på Google</strong>
+        <small>2 anmeldelser</small>
       </div>
     </div>
-  </div>
+    <div class="loop-card">
+      <h2>Etter jobben</h2>
+      <ol>
+        <li>SMS med poeng 1–5</li>
+        <li>4–5 → vi ber om Google-anmeldelse</li>
+        <li>1–3 → privat oppfølging</li>
+      </ol>
+    </div>
+  </section>
 
-  <footer class="site">Utkast fra Framvind — ikke offisiell side</footer>
+  <section class="booking" id="bestill">
+    <div class="booking-box">
+      <h2>Bestill henting</h2>
+      <p class="sub">Vi ringer deg for å bekrefte.</p>
+      <form onsubmit="event.preventDefault(); alert('Takk! Dette er en demoside — ring 483 99 744 for å bestille.');">
+        <div class="form-row">
+          <label for="k-name">Navn</label>
+          <input id="k-name" type="text" placeholder="Ditt navn" autocomplete="name" />
+        </div>
+        <div class="form-row">
+          <label for="k-phone">Telefon</label>
+          <input id="k-phone" type="tel" placeholder="Mobilnummer" autocomplete="tel" />
+        </div>
+        <div class="form-row">
+          <label for="k-what">Hva</label>
+          <select id="k-what">
+            <option>Skjorter / tøy</option>
+            <option>Dyner / tepper</option>
+            <option>Uniformer</option>
+            <option>Annet</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-lime">Send</button>
+        <p class="book-note">Demo — ingen data sendes</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="adresse">
+    <p>Hoffsveien 10, 0275 Oslo</p>
+    <p><a href="mailto:post@skoyenrenseri.no">post@skoyenrenseri.no</a></p>
+  </section>
+
+  <footer class="site-footer">Utkast fra Framvind — ikke offisiell side</footer>
 
   <div class="sticky-bar">
-    <a href="tel:+4748399744">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .6 3.6 1 1 0 0 1-.25 1L6.6 10.8z"/>
-      </svg>
-      Ring 483 99 744
-    </a>
+    <a href="tel:+4748399744">📞 Ring 483 99 744</a>
   </div>
 
   <button type="button" class="chat-fab" id="chatOpen" aria-label="Åpne chat">💬</button>
   <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Chat">
     <div class="chat-head">
-      <strong>Send melding</strong>
-      <button type="button" class="chat-close" id="chatClose" aria-label="Lukk chat">×</button>
+      <span>CHAT</span>
+      <button type="button" id="chatClose" aria-label="Lukk chat">×</button>
     </div>
     <div class="chat-body">
-      <div class="msg">Hei! Skriv kort hva du trenger — vi svarer fort.</div>
-      <input type="text" placeholder="Skriv her…" aria-label="Melding" id="chatInput" />
+      <div class="bubble">Trenger du oss nå? Ring — vi svarer også på kvelden.</div>
+    </div>
+    <div class="chat-actions">
+      <a class="ring" href="tel:+4748399744">Ring 483 99 744</a>
+      <a class="msg" href="#bestill" id="chatToBook">Bestill henting</a>
     </div>
   </div>
 
@@ -359,21 +363,12 @@
       var fab = document.getElementById('chatOpen');
       var panel = document.getElementById('chatPanel');
       var close = document.getElementById('chatClose');
-      var sendMsg = document.getElementById('sendMsg');
-      function openChat(e) {
-        if (e) e.preventDefault();
-        panel.classList.add('open');
-        fab.style.display = 'none';
-        var input = document.getElementById('chatInput');
-        if (input) input.focus();
-      }
-      function closeChat() {
-        panel.classList.remove('open');
-        fab.style.display = 'grid';
-      }
-      fab.addEventListener('click', openChat);
-      close.addEventListener('click', closeChat);
-      sendMsg.addEventListener('click', openChat);
+      var toBook = document.getElementById('chatToBook');
+      function open() { panel.classList.add('open'); fab.style.display = 'none'; }
+      function shut() { panel.classList.remove('open'); fab.style.display = 'flex'; }
+      fab.addEventListener('click', open);
+      close.addEventListener('click', shut);
+      toBook.addEventListener('click', shut);
     })();
   </script>
 </body>

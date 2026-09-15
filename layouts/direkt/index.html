@@ -3,376 +3,338 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Skøyen Renseri AS — Skøyen</title>
   <meta name="robots" content="noindex, nofollow" />
+  <title>Skøyen Renseri AS — Direkt</title>
   <link rel="icon" href="../skoyen-assets/favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --brand: #1a1a1a;
-      --brand-ink: #950b0b;
-      --brand-bg: #ffffff;
-      --muted: #5c5752;
-      --line: #e8e4e0;
-      --soft: #f7f5f3;
-      --font: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      --bg: #ffffff;
+      --ink: #111111;
+      --muted: #5a5a5a;
+      --line: #e6e6e6;
+      --soft: #f5f5f5;
+      --accent: #950b0b;
+      --accent-hover: #7a0909;
+      --star: #f5b400;
+      --radius: 10px;
+      --font: "DM Sans", system-ui, -apple-system, sans-serif;
+      --display: "Instrument Serif", Georgia, serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: var(--font);
-      background: var(--brand-bg);
-      color: var(--brand);
-      line-height: 1.5;
-      padding-bottom: 5rem;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
+      padding-bottom: 1rem;
     }
-    a { color: inherit; }
-    .wrap { max-width: 440px; margin: 0 auto; padding: 0 1rem; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { max-width: 480px; margin: 0 auto; padding: 0 1.1rem; }
 
+    /* Sticky header */
     header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      padding: 0.75rem 1rem;
+      position: sticky; top: 0; z-index: 40;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.97);
-      z-index: 20;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      color: inherit;
+    .header-inner {
+      max-width: 480px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.7rem 1.1rem; gap: 0.75rem;
     }
-    .logo img {
-      width: 40px; height: 40px;
-      object-fit: contain;
-      border-radius: 8px;
-      flex-shrink: 0;
-    }
-    .logo-text {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-    .header-phone {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--brand);
-      text-decoration: none;
-      min-height: 44px;
-      padding: 0.35rem 0.5rem;
+    .logo { display: flex; align-items: center; gap: 0.55rem; font-weight: 700; font-size: 0.92rem; }
+    .logo img { width: 36px; height: 36px; border-radius: 8px; object-fit: contain; }
+    .hdr-phone {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-weight: 700; font-size: 0.95rem; color: var(--accent);
+      min-height: 44px; padding: 0.4rem 0.65rem;
+      border: 1.5px solid var(--accent); border-radius: 999px;
     }
 
+    /* Hero */
     .hero {
-      padding: 1.75rem 1rem 1.5rem;
-      background: linear-gradient(165deg, #faf7f5 0%, #fff 55%, #f3ebe8 100%);
+      padding: 1.75rem 1.1rem 1.5rem;
+      max-width: 480px; margin: 0 auto;
     }
-    .hero .wrap { padding: 0; }
-    .badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--brand-ink);
-      background: rgba(149, 11, 11, 0.1);
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      margin-bottom: 0.75rem;
+    .badge-night {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.75rem; font-weight: 600;
+      background: #fff0f0; color: var(--accent);
+      border: 1px solid #f0c8c8; border-radius: 999px;
+      padding: 0.3rem 0.7rem; margin-bottom: 0.9rem;
     }
-    h1 {
-      font-family: var(--font-display);
-      font-size: 1.85rem;
-      line-height: 1.15;
-      font-weight: 700;
-      margin-bottom: 0.65rem;
+    .hero h1 {
+      font-family: var(--display);
+      font-size: clamp(1.85rem, 6.5vw, 2.35rem);
+      font-weight: 400; line-height: 1.15;
+      letter-spacing: -0.02em; margin-bottom: 0.65rem;
     }
-    .hero p {
-      color: var(--muted);
-      font-size: 1rem;
-      margin-bottom: 1.25rem;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      min-height: 52px;
-      padding: 0.85rem 1.35rem;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 1.05rem;
-      text-decoration: none !important;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      font-family: inherit;
-    }
+    .hero p.lead { color: var(--muted); font-size: 1rem; margin-bottom: 1.25rem; }
     .btn-primary {
-      background: var(--brand-ink);
-      color: #fff !important;
-      box-shadow: 0 4px 14px rgba(149, 11, 11, 0.28);
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      width: 100%; min-height: 56px;
+      background: var(--accent); color: #fff;
+      font-weight: 700; font-size: 1.1rem;
+      border: none; border-radius: var(--radius);
+      cursor: pointer; text-decoration: none;
+      box-shadow: 0 4px 14px rgba(149,11,11,0.28);
+      transition: background 0.15s;
     }
-    .btn-primary:active { transform: scale(0.98); }
+    .btn-primary:hover, .btn-primary:focus-visible { background: var(--accent-hover); outline: none; }
+    .btn-secondary {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; min-height: 48px; margin-top: 0.65rem;
+      background: transparent; color: var(--ink);
+      font-weight: 600; font-size: 0.95rem;
+      border: 1.5px solid var(--line); border-radius: var(--radius);
+      text-decoration: none;
+    }
+    .hero-img {
+      margin-top: 1.35rem; border-radius: 12px; overflow: hidden;
+      aspect-ratio: 16/10; background: var(--soft);
+    }
+    .hero-img img { width: 100%; height: 100%; object-fit: cover; }
 
+    /* Services */
     section { padding: 1.75rem 0; }
-    section + section { border-top: 1px solid var(--line); }
-    h2 {
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
+    .section-title {
+      font-family: var(--display);
+      font-size: 1.55rem; font-weight: 400;
+      margin-bottom: 1rem; letter-spacing: -0.01em;
     }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
+    .services-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
     }
     .svc {
-      background: var(--soft);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      overflow: hidden;
+      background: var(--soft); border-radius: var(--radius);
+      overflow: hidden; border: 1px solid var(--line);
     }
-    .svc img {
-      width: 100%;
-      height: 88px;
-      object-fit: cover;
-      display: block;
-    }
-    .svc-body { padding: 0.85rem 0.9rem 1rem; }
-    .svc strong { display: block; font-size: 0.9rem; margin-bottom: 0.2rem; }
-    .svc p { font-size: 0.8rem; color: var(--muted); }
+    .svc img { width: 100%; height: 90px; object-fit: cover; }
+    .svc-body { padding: 0.7rem 0.75rem 0.85rem; }
+    .svc-body strong { display: block; font-size: 0.88rem; margin-bottom: 0.15rem; }
+    .svc-body span { font-size: 0.78rem; color: var(--muted); }
+    .svc.wide { grid-column: 1 / -1; display: grid; grid-template-columns: 100px 1fr; }
+    .svc.wide img { height: 100%; min-height: 80px; }
 
-    .reviews-head {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
+    /* Reviews */
+    .reviews { background: var(--soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .google-badge {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 0.9rem 1rem; margin-bottom: 1rem;
     }
-    .stars { color: #c9a227; letter-spacing: 0.05em; font-size: 1rem; }
-    .reviews-meta { font-size: 0.9rem; color: var(--muted); }
-    .review {
-      background: var(--soft);
-      border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 0.65rem;
-      border: 1px solid var(--line);
+    .stars { color: var(--star); letter-spacing: 0.05em; font-size: 1.1rem; }
+    .google-badge strong { font-size: 1.05rem; }
+    .google-badge small { display: block; color: var(--muted); font-size: 0.8rem; }
+
+    /* Review loop */
+    .review-loop {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 1rem 1.05rem; margin-top: 0.85rem;
     }
-    .review .who {
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-top: 0.5rem;
-      color: var(--muted);
+    .review-loop h3 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .review-loop ol { margin-left: 1.15rem; color: var(--muted); font-size: 0.88rem; }
+    .review-loop li { margin-bottom: 0.35rem; }
+
+    /* Booking */
+    .booking {
+      background: var(--ink); color: #fff; border-radius: 14px;
+      padding: 1.35rem 1.2rem; margin: 0.5rem 0 0.25rem;
+    }
+    .booking h2 { font-family: var(--display); font-size: 1.45rem; font-weight: 400; margin-bottom: 0.4rem; }
+    .booking p { color: #c8c8c8; font-size: 0.9rem; margin-bottom: 1rem; }
+    .form-row { margin-bottom: 0.7rem; }
+    .form-row label { display: block; font-size: 0.78rem; font-weight: 600; margin-bottom: 0.3rem; color: #ddd; }
+    .form-row input, .form-row select, .form-row textarea {
+      width: 100%; min-height: 46px; padding: 0.65rem 0.8rem;
+      border: 1px solid #333; border-radius: 8px;
+      background: #1a1a1a; color: #fff; font: inherit; font-size: 0.95rem;
+    }
+    .form-row textarea { min-height: 80px; resize: vertical; }
+    .booking .btn-primary { margin-top: 0.35rem; }
+    .booking-note { font-size: 0.75rem; color: #999; margin-top: 0.75rem; text-align: center; }
+
+    /* Contact */
+    .contact-list { list-style: none; }
+    .contact-list li {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      padding: 0.85rem 0; border-bottom: 1px solid var(--line);
+      font-size: 0.95rem;
+    }
+    .contact-list li:last-child { border-bottom: none; }
+    .contact-list a { font-weight: 600; color: var(--accent); }
+
+    footer.site-footer {
+      text-align: center; padding: 1.5rem 1rem 2rem;
+      font-size: 0.78rem; color: #888;
+      border-top: 1px solid var(--line); margin-top: 1rem;
     }
 
-    .kontakt-card {
-      background: var(--brand);
-      color: #fff;
-      border-radius: 14px;
-      padding: 1.25rem;
-    }
-    .kontakt-card h2 { color: #fff; margin-bottom: 0.75rem; }
-    .kontakt-card p { opacity: 0.9; font-size: 0.95rem; margin-bottom: 0.4rem; }
-    .kontakt-card a {
-      color: #fff;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-block;
-      min-height: 44px;
-      line-height: 44px;
-    }
-    .kontakt-card .btn-primary { margin-top: 1rem; }
-
-    footer.site {
-      text-align: center;
-      padding: 1.5rem 1rem 2rem;
-      font-size: 0.75rem;
-      color: #8a8580;
-    }
-
-    .chat-fab, .chat-panel {
-      position: fixed;
-      z-index: 40;
-      right: 1rem;
-      bottom: 1rem;
-      font-family: inherit;
-    }
+    /* Chat widget */
     .chat-fab {
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      background: var(--brand);
-      color: #fff;
-      border: none;
-      box-shadow: 0 6px 20px rgba(26, 26, 26, 0.3);
-      cursor: pointer;
-      font-size: 1.35rem;
-      display: grid;
-      place-items: center;
+      position: fixed; bottom: 1.15rem; right: 1.15rem; z-index: 50;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--accent); color: #fff; border: none;
+      box-shadow: 0 6px 20px rgba(149,11,11,0.35);
+      cursor: pointer; font-size: 1.4rem;
+      display: flex; align-items: center; justify-content: center;
     }
     .chat-panel {
-      width: min(320px, calc(100vw - 2rem));
-      background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 12px 40px rgba(26, 26, 26, 0.18);
-      border: 1px solid var(--line);
-      overflow: hidden;
-      display: none;
+      display: none; position: fixed; bottom: 5.2rem; right: 1rem; z-index: 51;
+      width: min(340px, calc(100vw - 2rem));
+      background: #fff; border: 1px solid var(--line); border-radius: 14px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.18); overflow: hidden;
     }
-    .chat-panel.open { display: block; }
-    .chat-panel .chat-head {
-      background: var(--brand);
-      color: #fff;
-      border: none;
-      padding: 0.65rem 0.75rem 0.65rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .chat-panel.open { display: flex; flex-direction: column; }
+    .chat-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.75rem 0.9rem; background: var(--ink); color: #fff;
+      font-weight: 600; font-size: 0.9rem;
     }
-    .chat-panel .chat-head strong { font-size: 0.95rem; }
-    .chat-close {
-      background: transparent;
-      border: none;
-      color: #fff;
-      font-size: 1.25rem;
-      cursor: pointer;
-      min-width: 44px;
-      min-height: 44px;
+    .chat-head button {
+      background: transparent; border: none; color: #fff;
+      font-size: 1.25rem; cursor: pointer; line-height: 1;
+      width: 36px; height: 36px;
     }
-    .chat-body { padding: 1rem; font-size: 0.9rem; color: var(--muted); }
-    .chat-body .msg {
-      background: var(--soft);
-      padding: 0.75rem;
-      border-radius: 10px;
-      margin-bottom: 0.75rem;
+    .chat-body { padding: 0.9rem; font-size: 0.88rem; color: var(--muted); }
+    .chat-body .bubble {
+      background: var(--soft); border-radius: 10px; padding: 0.7rem 0.85rem; margin-bottom: 0.65rem;
+      color: var(--ink);
     }
-    .chat-body input {
-      width: 100%;
-      min-height: 44px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 0.5rem 0.75rem;
-      font: inherit;
+    .chat-actions { display: flex; flex-direction: column; gap: 0.45rem; padding: 0 0.9rem 0.9rem; }
+    .chat-actions a {
+      display: block; text-align: center; min-height: 44px; line-height: 44px;
+      border-radius: 8px; font-weight: 600; font-size: 0.9rem;
     }
+    .chat-actions .ring { background: var(--accent); color: #fff; }
+    .chat-actions .msg { border: 1px solid var(--line); }
   </style>
 </head>
 <body>
   <header>
-    <a class="logo" href="#">
-      <img src="../skoyen-assets/logo.png" alt="" width="40" height="40" />
-      <span class="logo-text">Skøyen Renseri</span>
-    </a>
-    <a class="header-phone" href="tel:+4748399744" aria-label="Ring oss">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .6 3.6 1 1 0 0 1-.25 1L6.6 10.8z" fill="currentColor"/>
-      </svg>
-      483 99 744
-    </a>
+    <div class="header-inner">
+      <a class="logo" href="#">
+        <img src="../skoyen-assets/logo.png" alt="" width="36" height="36" />
+        <span>Skøyen Renseri</span>
+      </a>
+      <a class="hdr-phone" href="tel:+4748399744">483 99 744</a>
+    </div>
   </header>
 
   <section class="hero">
-    <div class="wrap">
-      <span class="badge">Renseri · Skøyen · Hoff</span>
-      <h1>Enklere, renere, bedre</h1>
-      <p>Vi renser og vasker klær, dyner, gardiner og tepper. Hoffsveien 10 — et steinkast fra Hoff buss og T-bane.</p>
-      <a class="btn btn-primary" href="tel:+4748399744">Ring 483 99 744</a>
+    <div class="badge-night">🌙 Vi svarer også på kvelden</div>
+    <h1>Rens og vask — klart når du trenger det</h1>
+    <p class="lead">Skjorter, dyner, uniformer og mer. Henting og levering i Oslo.</p>
+    <a class="btn-primary" href="tel:+4748399744">Ring 483 99 744</a>
+    <a class="btn-secondary" href="#bestill">Bestill henting</a>
+    <div class="hero-img">
+      <img src="../skoyen-assets/hero.jpg" alt="Renseri" width="480" height="300" />
     </div>
   </section>
 
   <section>
     <div class="wrap">
-      <h2>Tjenester</h2>
-      <div class="grid">
+      <h2 class="section-title">Tjenester</h2>
+      <div class="services-grid">
         <article class="svc">
-          <img src="../skoyen-assets/service-dyner.webp" alt="" width="320" height="200" loading="lazy" />
-          <div class="svc-body">
-            <strong>Rens &amp; vask</strong>
-            <p>Klær, duker, sengetøy, gardiner, dyner og tepper.</p>
-          </div>
+          <img src="../skoyen-assets/service-skjorte.webp" alt="" />
+          <div class="svc-body"><strong>Skjorter</strong><span>Press og fold</span></div>
         </article>
         <article class="svc">
-          <img src="../skoyen-assets/service-uniformer.webp" alt="" width="320" height="200" loading="lazy" />
-          <div class="svc-body">
-            <strong>Bedriftsavtaler</strong>
-            <p>Uniformer og arbeidsklær med fast henting.</p>
-          </div>
+          <img src="../skoyen-assets/service-dyner.webp" alt="" />
+          <div class="svc-body"><strong>Dyner &amp; tepper</strong><span>Grundig vask</span></div>
         </article>
-        <article class="svc">
-          <img src="../skoyen-assets/service-skjorte.webp" alt="" width="320" height="200" loading="lazy" />
-          <div class="svc-body">
-            <strong>Skjorteabonnement</strong>
-            <p>Rene, strøkne skjorter uten stress.</p>
-          </div>
+        <article class="svc wide">
+          <img src="../skoyen-assets/service-uniformer.webp" alt="" />
+          <div class="svc-body"><strong>Uniformer &amp; bedrift</strong><span>Fast avtale for kontor og butikk</span></div>
         </article>
-        <article class="svc">
-          <div class="svc-body" style="padding-top:1rem">
-            <strong>Bestill henting</strong>
-            <p>Vi henter hjemme eller på jobb — eller lever inn i butikken.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <div class="wrap">
+      <h2 class="section-title">Anmeldelser</h2>
+      <div class="google-badge">
+        <div>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <strong>5,0 på Google</strong>
+          <small>Basert på 2 anmeldelser</small>
+        </div>
+      </div>
+      <div class="review-loop">
+        <h3>Slik følger vi opp etter jobben</h3>
+        <ol>
+          <li>Du får en SMS og kan gi poeng fra 1 til 5.</li>
+          <li>4 eller 5? Vi ber deg legge igjen en Google-anmeldelse.</li>
+          <li>1–3? Vi tar kontakt privat og fikser det.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="bestill">
+    <div class="wrap">
+      <div class="booking">
+        <h2>Bestill henting</h2>
+        <p>Fyll inn — vi ringer deg for å bekrefte tid.</p>
+        <form onsubmit="event.preventDefault(); alert('Takk! Dette er en demoside — ring 483 99 744 for å bestille.');">
+          <div class="form-row">
+            <label for="d-name">Navn</label>
+            <input id="d-name" name="name" type="text" placeholder="Ditt navn" autocomplete="name" />
           </div>
-        </article>
+          <div class="form-row">
+            <label for="d-phone">Telefon</label>
+            <input id="d-phone" name="phone" type="tel" placeholder="Mobilnummer" autocomplete="tel" />
+          </div>
+          <div class="form-row">
+            <label for="d-what">Hva skal hentes?</label>
+            <select id="d-what" name="what">
+              <option>Skjorter / tøy</option>
+              <option>Dyner / tepper</option>
+              <option>Uniformer</option>
+              <option>Annet</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary">Send forespørsel</button>
+          <p class="booking-note">Demo-skjema — ingen data sendes.</p>
+        </form>
       </div>
     </div>
   </section>
 
   <section>
     <div class="wrap">
-      <h2>Anmeldelser</h2>
-      <div class="reviews-head">
-        <span class="stars" aria-hidden="true">★★★★★</span>
-        <span class="reviews-meta"><strong>5,0</strong> · 2 anmeldelser på Google</span>
-      </div>
-      <article class="review">
-        <span class="stars" aria-hidden="true">★★★★★</span>
-        <p>«Raskt, greit og fint resultat på dressen. Lett å komme til fra Hoff.»</p>
-        <div class="who">— Eksempel · Google · 5/5</div>
-      </article>
-      <article class="review">
-        <span class="stars" aria-hidden="true">★★★★★</span>
-        <p>«Skjorteabonnementet sparer meg for tid. Henting fungerer bra.»</p>
-        <div class="who">— Eksempel · Google · 5/5</div>
-      </article>
+      <h2 class="section-title">Kontakt</h2>
+      <ul class="contact-list">
+        <li><span>📞</span><div><a href="tel:+4748399744">483 99 744</a><br /><small style="color:var(--muted)">Vi svarer også på kvelden</small></div></li>
+        <li><span>📍</span><div>Hoffsveien 10, 0275 Oslo</div></li>
+        <li><span>✉️</span><div><a href="mailto:post@skoyenrenseri.no">post@skoyenrenseri.no</a></div></li>
+      </ul>
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <div class="kontakt-card">
-        <h2>Kontakt</h2>
-        <p><a href="tel:+4748399744">483 99 744</a></p>
-        <p>Hoffsveien 10, 0275 Oslo</p>
-        <p>Man–fre 09:30–17:30 · lør 10–15</p>
-        <p><a href="mailto:post@skoyenrenseri.no">post@skoyenrenseri.no</a></p>
-        <a class="btn btn-primary" href="tel:+4748399744">Ring oss nå</a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site">Utkast fra Framvind — ikke offisiell side</footer>
+  <footer class="site-footer">Utkast fra Framvind — ikke offisiell side</footer>
 
   <button type="button" class="chat-fab" id="chatOpen" aria-label="Åpne chat">💬</button>
   <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Chat">
     <div class="chat-head">
-      <strong>Chat med Skøyen Renseri</strong>
-      <button type="button" class="chat-close" id="chatClose" aria-label="Lukk chat">×</button>
+      <span>Skøyen Renseri</span>
+      <button type="button" id="chatClose" aria-label="Lukk chat">×</button>
     </div>
     <div class="chat-body">
-      <div class="msg">Hei! Hva trenger du — rens, dyner, skjorteabonnement eller bedriftsavtale?</div>
-      <input type="text" placeholder="Skriv en melding…" aria-label="Melding" />
+      <div class="bubble">Hei! Trenger du henting eller har du et spørsmål? Ring oss — vi svarer også på kvelden.</div>
+    </div>
+    <div class="chat-actions">
+      <a class="ring" href="tel:+4748399744">Ring 483 99 744</a>
+      <a class="msg" href="#bestill" id="chatToBook">Bestill henting</a>
     </div>
   </div>
 
@@ -381,14 +343,12 @@
       var fab = document.getElementById('chatOpen');
       var panel = document.getElementById('chatPanel');
       var close = document.getElementById('chatClose');
-      fab.addEventListener('click', function () {
-        panel.classList.add('open');
-        fab.style.display = 'none';
-      });
-      close.addEventListener('click', function () {
-        panel.classList.remove('open');
-        fab.style.display = 'grid';
-      });
+      var toBook = document.getElementById('chatToBook');
+      function open() { panel.classList.add('open'); fab.style.display = 'none'; }
+      function shut() { panel.classList.remove('open'); fab.style.display = 'flex'; }
+      fab.addEventListener('click', open);
+      close.addEventListener('click', shut);
+      toBook.addEventListener('click', shut);
     })();
   </script>
 </body>
