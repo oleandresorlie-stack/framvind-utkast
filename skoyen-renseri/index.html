@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Skøyen Renseri – Rens og vask på Skøyen (utkast)</title>
+  <meta name="description" content="Skøyen Renseri – rens, vask, bedriftsavtaler og skjorteabonnement. Hoffsveien 10, 0275 Oslo. Ved Hoff buss og T-bane." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="draft-banner">
+    Utkast fra Framvind — ikke offisiell side.
+    <a href="https://skoyenrenseri.no/" rel="noopener">Se dagens side</a>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="Skøyen Renseri – forsiden">
+        <img src="assets/logo.png" alt="Skøyen Renseri" width="56" height="56" />
+        <span class="logo-text">Skøyen Renseri</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Hovedmeny">
+        <a href="#tjenester">Tjenester</a>
+        <a href="#booking">Bestill henting</a>
+        <a href="#anmeldelser">Anmeldelser</a>
+        <a href="#om-oss">Om oss</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <div class="header-actions">
+        <a class="phone-link" href="tel:+4748399744">483 99 744</a>
+        <a class="btn btn-primary" href="#booking">Bestill henting</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- GAP: broken hero CTA + plain-text phone → real ring/book above fold -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-badge">Renseri · Skøyen · Hoff</div>
+          <h1>Enklere, renere, bedre</h1>
+          <p class="hero-lead">
+            Velkommen til Skøyen Renseri. Vi renser og vasker det meste for deg —
+            klær, duker, sengetøy, gardiner og tepper. Du finner oss på Hoffsveien 10,
+            et steinkast fra Hoff buss og T-bane.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary btn-lg" href="tel:+4748399744">Ring 483 99 744</a>
+            <a class="btn btn-secondary btn-lg" href="#booking">Bestill henting</a>
+            <button type="button" class="btn btn-ghost btn-lg" id="open-chat-hero">Åpne chat</button>
+          </div>
+          <div class="hero-note" role="note">
+            <span aria-hidden="true">📍</span>
+            <div>
+              <strong>Hoffsveien 10, 0275 Oslo.</strong>
+              Man–fre 09:30–17:30 · lør 10–15.
+              Ring <a href="tel:+4748399744">483 99 744</a>
+              eller skriv til <a href="mailto:post@skoyenrenseri.no">post@skoyenrenseri.no</a>.
+            </div>
+          </div>
+        </div>
+
+        <!-- GAP: no contact form → submittable form with success state -->
+        <div class="form-card" id="bestill">
+          <h2>Send forespørsel</h2>
+          <p class="sub">Kort skjema — vi tar kontakt. (Live-siden har kun e-post og telefon som ren tekst.)</p>
+          <form class="contact-form" id="lead-form" novalidate>
+            <div class="form-row">
+              <label for="name">Navn</label>
+              <input id="name" name="name" type="text" autocomplete="name" required placeholder="Ditt navn" />
+            </div>
+            <div class="form-row">
+              <label for="phone">Telefon</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="Mobilnummer" />
+            </div>
+            <div class="form-row">
+              <label for="need">Hva trenger du?</label>
+              <textarea id="need" name="need" required placeholder="F.eks. rens av dress, dyner, skjorteabonnement, bedriftsavtale …"></textarea>
+            </div>
+            <button class="btn btn-primary btn-block btn-lg" type="submit">Send forespørsel</button>
+            <p class="form-trust">
+              Eller ring <a href="tel:+4748399744">483 99 744</a>
+              · <a href="mailto:post@skoyenrenseri.no">post@skoyenrenseri.no</a>
+            </p>
+          </form>
+          <div class="form-success" id="form-success" aria-live="polite">
+            <div class="check" aria-hidden="true">✓</div>
+            <h2>Takk — vi følger opp snart</h2>
+            <p class="sub">Dette er et utkast-skjema. På en ferdig side går forespørselen rett til Skøyen Renseri.</p>
+            <a class="btn btn-secondary btn-block" href="tel:+4748399744">Ring oss nå: 483 99 744</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-items">
+        <div class="trust-item">
+          <span class="dot" aria-hidden="true"></span>
+          <div><strong>Ved Hoff stasjon</strong> Buss og T-bane rett ved — parkering utenfor lokalet.</div>
+        </div>
+        <div class="trust-item">
+          <span class="dot" aria-hidden="true"></span>
+          <div><strong>Rens &amp; vask</strong> Klær, dyner, gardiner, tepper og mer.</div>
+        </div>
+        <div class="trust-item">
+          <span class="dot" aria-hidden="true"></span>
+          <div><strong>Bedrift &amp; skjorte</strong> Bedriftsavtaler og skjorteabonnement.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAP: no booking → Bestill henting -->
+    <section class="booking-section" id="booking">
+      <div class="container">
+        <p class="section-eyebrow">Bestill henting</p>
+        <h2 class="section-title">Bestill henting eller levering</h2>
+        <p class="section-lead">
+          Velg dag og tid — vi bekrefter. (Utkast: viser hvordan booking kan se ut for Skøyen Renseri.
+          Live-siden har ingen booking.)
+        </p>
+        <div class="booking-grid">
+          <div class="calendar-card" aria-label="Kalender for booking">
+            <div class="cal-header">
+              <button type="button" class="cal-nav" id="cal-prev" aria-label="Forrige måned">‹</button>
+              <strong id="cal-label">September 2026</strong>
+              <button type="button" class="cal-nav" id="cal-next" aria-label="Neste måned">›</button>
+            </div>
+            <div class="cal-weekdays" aria-hidden="true">
+              <span>Ma</span><span>Ti</span><span>On</span><span>To</span><span>Fr</span><span>Lø</span><span>Sø</span>
+            </div>
+            <div class="cal-days" id="cal-days"></div>
+            <p class="cal-hint">Velg en dag, deretter et tidspunkt.</p>
+          </div>
+          <div class="booking-side">
+            <p class="slots-label">Ønsket tid</p>
+            <div class="slots" id="slots">
+              <button type="button" class="slot" data-time="10:00">10:00</button>
+              <button type="button" class="slot" data-time="11:30">11:30</button>
+              <button type="button" class="slot" data-time="13:00">13:00</button>
+              <button type="button" class="slot" data-time="14:30">14:30</button>
+              <button type="button" class="slot" data-time="16:00">16:00</button>
+            </div>
+            <form class="booking-form" id="booking-form" novalidate>
+              <div class="form-row">
+                <label for="b-type">Henting eller innlevering?</label>
+                <select id="b-type" required>
+                  <option value="">Velg …</option>
+                  <option value="henting">Henting hjemme / på jobb</option>
+                  <option value="innlevering">Jeg leverer inn i butikken</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="b-name">Navn</label>
+                <input id="b-name" required placeholder="Ditt navn" autocomplete="name" />
+              </div>
+              <div class="form-row">
+                <label for="b-phone">Telefon</label>
+                <input id="b-phone" type="tel" required placeholder="Mobilnummer" autocomplete="tel" />
+              </div>
+              <p class="booking-summary" id="booking-summary">Velg dag og tid for å fortsette.</p>
+              <button class="btn btn-primary btn-block btn-lg" type="submit">Bekreft bestilling</button>
+            </form>
+            <div class="booking-success" id="booking-success" hidden>
+              <div class="check" aria-hidden="true">✓</div>
+              <strong>Bestilling registrert (utkast)</strong>
+              <p>På en ferdig side får du bekreftelse og oppfølging fra Skøyen Renseri.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services with real anchors (live tiles often point to #) -->
+    <section id="tjenester">
+      <div class="container">
+        <p class="section-eyebrow">Tjenester</p>
+        <h2 class="section-title">Vi tilbyr rens og vask</h2>
+        <p class="section-lead">Tre tydelige tilbud — med ekte lenker til mer info (live-sidens fliser peker ofte bare til #).</p>
+        <div class="services-grid">
+          <article class="service-card" id="rens-vask">
+            <div class="service-media">
+              <img src="assets/service-dyner.webp" alt="Rens og vask — dyner og tekstiler" width="640" height="400" loading="lazy" />
+            </div>
+            <div class="service-body">
+              <h3>Rens &amp; vask</h3>
+              <p>Vi renser det meste for deg — klær, duker, sengetøy, gardiner, dyner og tepper.</p>
+              <a class="btn btn-secondary" href="#booking">Bestill henting</a>
+            </div>
+          </article>
+          <article class="service-card" id="bedrift">
+            <div class="service-media">
+              <img src="assets/service-uniformer.webp" alt="Bedriftsavtaler — uniformer" width="640" height="400" loading="lazy" />
+            </div>
+            <div class="service-body">
+              <h3>Bedriftsavtaler</h3>
+              <p>Avtale for bedrifter — uniformer og arbeidsklær med forutsigbar henting og levering.</p>
+              <a class="btn btn-secondary" href="#bestill">Be om tilbud</a>
+            </div>
+          </article>
+          <article class="service-card" id="skjorte">
+            <div class="service-media">
+              <img src="assets/service-skjorte.webp" alt="Skjorteabonnement" width="640" height="400" loading="lazy" />
+            </div>
+            <div class="service-body">
+              <h3>Skjorteabonnement</h3>
+              <p>Fast avtale for skjorter — enkelt for deg som vil ha rene, strøkne skjorter uten stress.</p>
+              <a class="btn btn-secondary" href="#bestill">Start abonnement</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAP: no Google reviews on live -->
+    <section class="reviews-section" id="anmeldelser">
+      <div class="container">
+        <p class="section-eyebrow">Google-anmeldelser</p>
+        <h2 class="section-title">Synlige Google-anmeldelser</h2>
+        <p class="section-lead">
+          Live-siden viser ingen Google-anmeldelser. I dette utkastet synliggjør vi dem —
+          og gjør det enkelt å følge med og svare kundene i samme tone som Skøyen Renseri.
+        </p>
+        <div class="reviews-monitor">
+          <div class="monitor-badge">Følg med &amp; svar</div>
+          <p>
+            Når en kunde legger igjen en Google-anmeldelse, ser dere den her og kan svare raskt —
+            takk for ros, eller rydd opp hvis noe gikk galt. Kort, vennlig norsk.
+          </p>
+        </div>
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 av 5">★★★★★</div>
+            <blockquote>«Raskt, greit og fint resultat på dressen. Lett å komme til fra Hoff.»</blockquote>
+            <cite>Eksempel · Google · 5/5</cite>
+            <div class="review-reply">
+              <strong>Svar fra Skøyen Renseri:</strong>
+              Takk for hyggelige ord — velkommen tilbake!
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 av 5">★★★★★</div>
+            <blockquote>«Skjorteabonnementet sparer meg for tid. Henting fungerer bra.»</blockquote>
+            <cite>Eksempel · Google · 5/5</cite>
+            <div class="review-reply">
+              <strong>Svar fra Skøyen Renseri:</strong>
+              Flott å høre. Si ifra om du vil justere avtalen.
+            </div>
+          </article>
+        </div>
+        <p class="reviews-note">Eksempelkort i utkast — ikke hentet fra live (live har ingen synlige anmeldelser).</p>
+      </div>
+    </section>
+
+    <section class="about" id="om-oss">
+      <div class="container about-grid">
+        <div class="about-media">
+          <img src="assets/hero.jpg" alt="Skøyen Renseri" width="960" height="610" loading="lazy" />
+        </div>
+        <div>
+          <p class="section-eyebrow">Om oss</p>
+          <h2 class="section-title">Velkommen til Skøyen Renseri</h2>
+          <p class="section-lead" style="margin-bottom:0">
+            Skøyen Renseri er et renseri på Skøyen som utfører rens og vask av alle typer klær,
+            duker, sengetøy, gardiner og tepper. Vi ligger et steinkast fra Hoff buss og T-bane.
+            Kommer du med bil, er det parkering — og du kan ved behov parkere utenfor lokalet
+            om du har mye og tunge tekstiler.
+          </p>
+          <div class="points">
+            <div class="point">
+              <span>✓</span>
+              <div>
+                <strong>Adresse</strong>
+                <p>Hoffsveien 10, 0275 Oslo</p>
+              </div>
+            </div>
+            <div class="point">
+              <span>✓</span>
+              <div>
+                <strong>Åpningstider</strong>
+                <p>Man–fre 09:30–17:30 · lør 10:00–15:00</p>
+              </div>
+            </div>
+            <div class="point">
+              <span>✓</span>
+              <div>
+                <strong>Kontakt</strong>
+                <p>
+                  <a href="tel:+4748399744">483 99 744</a> ·
+                  <a href="mailto:post@skoyenrenseri.no">post@skoyenrenseri.no</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <p style="margin-top:1.25rem">
+            <a class="btn btn-primary" href="#booking">Bestill henting</a>
+            <a class="btn btn-secondary" href="https://www.skoyenrenseri.no/om-oss/" target="_blank" rel="noopener noreferrer" style="margin-left:0.5rem">Om oss på skoyenrenseri.no</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section" aria-label="Bilder">
+      <div class="container">
+        <p class="section-eyebrow">Fra butikken</p>
+        <h2 class="section-title">Vi renser det meste for deg</h2>
+        <div class="gallery-grid">
+          <img src="assets/gallery-1.jpg" alt="" width="640" height="427" loading="lazy" />
+          <img src="assets/gallery-2.jpg" alt="" width="640" height="427" loading="lazy" />
+          <img src="assets/gallery-3.jpg" alt="" width="640" height="427" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- GAP: plain-text contact on live → clickable tel + mailto -->
+    <section class="contact-band" id="kontakt">
+      <div class="container">
+        <h2 class="section-title">Kontakt oss</h2>
+        <p>Ring, chat, bestill henting — eller send kort skjema. Alt er klikkbart (på live er telefon og e-post bare tekst).</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary btn-lg" href="tel:+4748399744">Ring 483 99 744</a>
+          <a class="btn btn-secondary btn-lg" href="mailto:post@skoyenrenseri.no">post@skoyenrenseri.no</a>
+          <a class="btn btn-dark btn-lg" href="#booking">Bestill henting</a>
+          <button type="button" class="btn btn-ghost btn-lg" id="open-chat-contact">Åpne chat</button>
+        </div>
+        <div class="contact-details">
+          <div><strong>Adresse:</strong> Hoffsveien 10, 0275 Oslo</div>
+          <div><strong>Telefon:</strong> <a href="tel:+4748399744">483 99 744</a></div>
+          <div><strong>E-post:</strong> <a href="mailto:post@skoyenrenseri.no">post@skoyenrenseri.no</a></div>
+          <div><strong>Orgnr.:</strong> 934 547 470</div>
+          <div><strong>Åpningstider:</strong> Man–fre 09:30–17:30 · lør 10–15</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="assets/logo.png" alt="Skøyen Renseri" width="48" height="48" />
+        <div class="footer-meta">
+          Skøyen Renseri<br />
+          Hoffsveien 10, 0275 Oslo<br />
+          <a href="tel:+4748399744">483 99 744</a> ·
+          <a href="mailto:post@skoyenrenseri.no">post@skoyenrenseri.no</a><br />
+          Orgnr. 934 547 470
+        </div>
+      </div>
+      <div>
+        <div class="socials" aria-label="Sosiale medier">
+          <a href="https://www.facebook.com/people/Sk%C3%B8yen-Renseri/61571316700919/" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.instagram.com/skoyen_renseri/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+        <p class="footer-disclaimer">Utkast fra Framvind — ikke offisiell side</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GAP: weak mobile CTA → sticky ring/book within seconds -->
+  <div class="sticky-cta" aria-label="Hurtigkontakt">
+    <a class="btn btn-secondary" href="tel:+4748399744">Ring</a>
+    <a class="btn btn-primary" href="#booking">Bestill</a>
+    <button type="button" class="btn btn-ghost" id="open-chat-sticky">Chat</button>
+  </div>
+
+  <!-- GAP: no chatbot → FAB closed + qualifying chat -->
+  <div class="chat-widget" id="chat-widget" data-open="false">
+    <div class="chat-panel" id="chat-panel" hidden aria-hidden="true" role="dialog" aria-label="Chat med Skøyen Renseri">
+      <div class="chat-panel-header">
+        <div>
+          <strong>Chat med Skøyen Renseri</strong>
+          <span class="chat-status">Utkast — svarer med en gang</span>
+        </div>
+        <div class="chat-panel-controls">
+          <button type="button" class="chat-minimize" id="chat-minimize" aria-label="Minimer chat" title="Minimer">−</button>
+          <button type="button" class="chat-close" id="chat-close" aria-label="Lukk chat" title="Lukk">×</button>
+        </div>
+      </div>
+      <div class="chat-messages" id="chat-messages">
+        <div class="chat-bubble bot">Hei! Velkommen til Skøyen Renseri (utkast-chat).</div>
+        <div class="chat-bubble bot">For å hjelpe deg raskt: <strong>hva trenger du?</strong> F.eks. rens av dress, dyner, skjorteabonnement, bedriftsavtale …</div>
+      </div>
+      <form class="chat-compose" id="chat-form">
+        <input id="chat-input" type="text" placeholder="Skriv en melding…" autocomplete="off" />
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </div>
+    <button type="button" class="chat-fab" id="chat-fab" aria-label="Åpne chat" aria-expanded="false" aria-controls="chat-panel">
+      <span class="chat-fab-icon" aria-hidden="true">💬</span>
+      <span class="chat-fab-label">Chat</span>
+    </button>
+  </div>
+
+  <script>
+    (function () {
+      var form = document.getElementById("lead-form");
+      var card = document.getElementById("bestill");
+      if (form && card) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!form.checkValidity()) { form.reportValidity(); return; }
+          card.classList.add("sent");
+        });
+      }
+
+      var panel = document.getElementById("chat-panel");
+      var fab = document.getElementById("chat-fab");
+      var closeBtn = document.getElementById("chat-close");
+      var chatForm = document.getElementById("chat-form");
+      var chatInput = document.getElementById("chat-input");
+      var chatMessages = document.getElementById("chat-messages");
+      var widget = document.getElementById("chat-widget");
+      var minimizeBtn = document.getElementById("chat-minimize");
+
+      function openChat() {
+        if (!panel) return;
+        panel.hidden = false;
+        panel.setAttribute("aria-hidden", "false");
+        if (widget) widget.setAttribute("data-open", "true");
+        if (fab) {
+          fab.setAttribute("aria-expanded", "true");
+          fab.hidden = true;
+        }
+        if (chatInput) chatInput.focus();
+      }
+      function closeChat() {
+        if (!panel) return;
+        panel.hidden = true;
+        panel.setAttribute("aria-hidden", "true");
+        if (widget) widget.setAttribute("data-open", "false");
+        if (fab) {
+          fab.setAttribute("aria-expanded", "false");
+          fab.hidden = false;
+        }
+      }
+      if (fab) fab.addEventListener("click", function () {
+        if (panel.hidden) openChat(); else closeChat();
+      });
+      if (closeBtn) closeBtn.addEventListener("click", closeChat);
+      if (minimizeBtn) minimizeBtn.addEventListener("click", closeChat);
+      ["open-chat-hero", "open-chat-contact", "open-chat-sticky"].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener("click", openChat);
+      });
+
+      /* Qualifying: need → pickup/dropoff → urgency → contact */
+      if (chatForm && chatInput && chatMessages) {
+        var chatStep = 0;
+        function addBot(htmlText) {
+          var bot = document.createElement("div");
+          bot.className = "chat-bubble bot";
+          bot.innerHTML = htmlText;
+          chatMessages.appendChild(bot);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        chatForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var text = (chatInput.value || "").trim();
+          if (!text) return;
+          var user = document.createElement("div");
+          user.className = "chat-bubble user";
+          user.textContent = text;
+          chatMessages.appendChild(user);
+          chatInput.value = "";
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+          setTimeout(function () {
+            if (chatStep === 0) {
+              addBot("Takk — notert. Vil du ha <strong>henting</strong>, eller <strong>leverer du inn</strong> i butikken på Hoffsveien 10?");
+              chatStep = 1;
+            } else if (chatStep === 1) {
+              addBot("Skjønner. Hvor <strong>haster</strong> det? Velg: i dag / denne uken / bare et tilbud.");
+              chatStep = 2;
+            } else if (chatStep === 2) {
+              addBot("Flott. Hva er beste <strong>telefonnummer</strong> (eller e-post) så vi kan følge opp?");
+              chatStep = 3;
+            } else if (chatStep === 3) {
+              addBot("Takk! Vi har det vi trenger. (Utkast) På en ferdig side går dette rett til Skøyen Renseri — eller ring <a href=\"tel:+4748399744\">483 99 744</a>.");
+              chatStep = 4;
+            } else {
+              addBot("Mottatt. Chat sorterer forespørsler aktivt — i motsetning til et passivt skjema. Ring gjerne <a href=\"tel:+4748399744\">483 99 744</a>.");
+            }
+          }, 450);
+        });
+      }
+
+      var months = [
+        { y: 2026, m: 8, label: "September 2026", start: 1, days: 30 },
+        { y: 2026, m: 9, label: "Oktober 2026", start: 3, days: 31 }
+      ];
+      var mi = 0;
+      var selectedDay = null;
+      var selectedTime = null;
+      var calDays = document.getElementById("cal-days");
+      var calLabel = document.getElementById("cal-label");
+      var summary = document.getElementById("booking-summary");
+
+      function renderCal() {
+        if (!calDays || !calLabel) return;
+        var info = months[mi];
+        calLabel.textContent = info.label;
+        calDays.innerHTML = "";
+        for (var i = 0; i < info.start; i++) {
+          var empty = document.createElement("span");
+          empty.className = "cal-empty";
+          calDays.appendChild(empty);
+        }
+        for (var d = 1; d <= info.days; d++) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "cal-day";
+          btn.textContent = String(d);
+          btn.dataset.day = String(d);
+          var wd = (info.start + d - 1) % 7;
+          if (wd === 6) btn.classList.add("cal-sun");
+          if (selectedDay && selectedDay.mi === mi && selectedDay.d === d) btn.classList.add("selected");
+          btn.addEventListener("click", (function (day) {
+            return function () {
+              selectedDay = { mi: mi, d: day, label: months[mi].label };
+              renderCal();
+              updateSummary();
+            };
+          })(d));
+          calDays.appendChild(btn);
+        }
+      }
+      function updateSummary() {
+        if (!summary) return;
+        if (selectedDay && selectedTime) {
+          summary.textContent = "Valgt: " + selectedDay.d + ". " + selectedDay.label + " kl. " + selectedTime;
+        } else if (selectedDay) {
+          summary.textContent = "Valgt dag: " + selectedDay.d + ". " + selectedDay.label + " — velg tid.";
+        } else {
+          summary.textContent = "Velg dag og tid for å fortsette.";
+        }
+      }
+      var prev = document.getElementById("cal-prev");
+      var next = document.getElementById("cal-next");
+      if (prev) prev.addEventListener("click", function () { mi = Math.max(0, mi - 1); renderCal(); });
+      if (next) next.addEventListener("click", function () { mi = Math.min(months.length - 1, mi + 1); renderCal(); });
+      document.querySelectorAll(".slot").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          document.querySelectorAll(".slot").forEach(function (b) { b.classList.remove("selected"); });
+          btn.classList.add("selected");
+          selectedTime = btn.getAttribute("data-time");
+          updateSummary();
+        });
+      });
+      renderCal();
+
+      var bookingForm = document.getElementById("booking-form");
+      var bookingSuccess = document.getElementById("booking-success");
+      if (bookingForm) {
+        bookingForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!selectedDay || !selectedTime) {
+            if (summary) summary.textContent = "Velg både dag og tid før du bekrefter.";
+            return;
+          }
+          if (!bookingForm.checkValidity()) { bookingForm.reportValidity(); return; }
+          bookingForm.hidden = true;
+          if (bookingSuccess) bookingSuccess.hidden = false;
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
