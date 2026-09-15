@@ -33,3 +33,9 @@ Scraped from https://skoyenrenseri.no/ (+ /om-oss/) on 2026-09-15.
 ## Footer
 Exact: «Utkast fra Framvind — ikke offisiell side»
 No Framvind product / demo / kontakt links inside page.
+
+
+## Delta 2026-09-15 — anmeldelses-flyt
+- `#anmeldelse-flyt`: SMS 1–5 etter jobb; 4–5 → Google Maps; ≤3 → privat oppfølging (ikke Google)
+- Maps-profil: https://www.google.com/maps/place/Sk%C3%B8yen+Renseri+AS/@59.9259375,10.67462,17z (5★, 2 reviews)
+- «Legg igjen anmeldelse» bruker ekte Maps-lenke
