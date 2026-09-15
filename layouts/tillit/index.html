@@ -162,7 +162,7 @@
     .loop-card ol { margin-left: 1.2rem; font-size: 0.92rem; color: var(--ink); }
     .loop-card li { margin-bottom: 0.4rem; }
 
-    /* Booking */
+    /* Booking + calendar */
     .booking-section {
       background: var(--ink); color: #fff;
       padding: 2rem 0 2.25rem;
@@ -174,10 +174,43 @@
     .booking-section .sub {
       text-align: center; color: #a8b8cc; font-size: 0.92rem; margin-bottom: 1.25rem;
     }
-    .book-form {
+    .booking-grid { display: grid; gap: 1rem; }
+    .calendar-card, .booking-side {
       background: var(--navy-deep); border-radius: var(--radius);
-      padding: 1.2rem; border: 1px solid #1a3355;
+      padding: 1.1rem; border: 1px solid #1a3355;
     }
+    .cal-header {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;
+    }
+    .cal-header strong { font-size: 0.95rem; color: #fff; }
+    .cal-nav {
+      width: 36px; height: 36px; border: 1px solid #2a4466; border-radius: 6px;
+      background: #0b1f3a; color: #fff; font-size: 1.25rem; cursor: pointer; font-family: inherit;
+    }
+    .cal-nav:hover { border-color: var(--gold); color: var(--gold); }
+    .cal-weekdays, .cal-days {
+      display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.3rem; text-align: center;
+    }
+    .cal-weekdays { font-size: 0.72rem; font-weight: 700; color: #7a8fa8; margin-bottom: 0.3rem; }
+    .cal-day {
+      aspect-ratio: 1; border: 1px solid #2a4466; border-radius: 6px;
+      background: #0b1f3a; color: #fff; cursor: pointer; font: inherit; font-weight: 600; font-size: 0.85rem;
+    }
+    .cal-day:hover { border-color: var(--gold); }
+    .cal-day.selected { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+    .cal-day.cal-sun { color: #7a8fa8; }
+    .cal-empty { aspect-ratio: 1; }
+    .cal-hint { margin: 0.7rem 0 0; font-size: 0.78rem; color: #7a8fa8; }
+    .slots-label { margin: 0 0 0.45rem; font-size: 0.78rem; font-weight: 700; color: #b8c4d4; }
+    .slots {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; margin-bottom: 0.9rem;
+    }
+    .slot {
+      padding: 0.6rem 0.3rem; border: 1px solid #2a4466; border-radius: 8px;
+      background: #0b1f3a; color: #fff; font: inherit; font-weight: 600; cursor: pointer;
+    }
+    .slot:hover { border-color: var(--gold); }
+    .slot.selected { background: var(--gold); color: var(--ink); border-color: var(--gold); }
     .form-row { margin-bottom: 0.75rem; }
     .form-row label { display: block; font-size: 0.78rem; font-weight: 600; color: #b8c4d4; margin-bottom: 0.3rem; }
     .form-row input, .form-row select, .form-row textarea {
@@ -186,10 +219,20 @@
       background: #0b1f3a; color: #fff; font: inherit;
     }
     .form-row textarea { min-height: 72px; resize: vertical; }
-    .book-form .btn-gold {
-      background: var(--gold); color: var(--ink); margin-top: 0.25rem;
+    .booking-summary { font-size: 0.85rem; color: #a8b8cc; margin: 0.4rem 0 0.85rem; }
+    .booking-side .btn-gold {
+      background: var(--gold); color: var(--ink); margin-top: 0.15rem; width: 100%;
+      display: block; text-align: center; min-height: 48px; line-height: 48px;
+      border: none; border-radius: 999px; font: inherit; font-weight: 700; cursor: pointer;
     }
-    .book-note { text-align: center; font-size: 0.75rem; color: #7a8fa8; margin-top: 0.75rem; }
+    .booking-success { text-align: center; padding: 1.1rem 0.4rem; }
+    .booking-success .check {
+      width: 48px; height: 48px; margin: 0 auto 0.75rem; border-radius: 50%;
+      background: var(--gold); color: var(--ink); display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; font-weight: 700;
+    }
+    .booking-success strong { display: block; margin-bottom: 0.4rem; color: #fff; }
+    .booking-success p { color: #a8b8cc; font-size: 0.88rem; }
 
     /* Contact strip */
     .contact {
@@ -322,29 +365,57 @@
 
   <section class="booking-section" id="bestill">
     <div class="wrap">
-      <h2>Bestill henting</h2>
-      <p class="sub">Vi bekrefter tid på telefon.</p>
-      <form class="book-form" onsubmit="event.preventDefault(); alert('Takk! Dette er en demoside — ring 483 99 744 for å bestille.');">
-        <div class="form-row">
-          <label for="t-name">Navn</label>
-          <input id="t-name" type="text" placeholder="Ditt navn" autocomplete="name" />
+      <h2>Bestill henting eller levering</h2>
+      <p class="sub">Velg dag og tid — vi bekrefter. (Demo: ingen data sendes.)</p>
+        <div class="booking-grid" id="booking">
+          <div class="calendar-card" aria-label="Kalender for booking">
+            <div class="cal-header">
+              <button type="button" class="cal-nav" id="cal-prev" aria-label="Forrige måned">‹</button>
+              <strong id="cal-label">September 2026</strong>
+              <button type="button" class="cal-nav" id="cal-next" aria-label="Neste måned">›</button>
+            </div>
+            <div class="cal-weekdays" aria-hidden="true">
+              <span>Ma</span><span>Ti</span><span>On</span><span>To</span><span>Fr</span><span>Lø</span><span>Sø</span>
+            </div>
+            <div class="cal-days" id="cal-days"></div>
+            <p class="cal-hint">Velg en dag, deretter et tidspunkt.</p>
+          </div>
+          <div class="booking-side">
+            <p class="slots-label">Ønsket tid</p>
+            <div class="slots" id="slots">
+              <button type="button" class="slot" data-time="10:00">10:00</button>
+              <button type="button" class="slot" data-time="11:30">11:30</button>
+              <button type="button" class="slot" data-time="13:00">13:00</button>
+              <button type="button" class="slot" data-time="14:30">14:30</button>
+              <button type="button" class="slot" data-time="16:00">16:00</button>
+            </div>
+            <form class="booking-form" id="booking-form" novalidate>
+              <div class="form-row">
+                <label for="b-type">Henting eller innlevering?</label>
+                <select id="b-type" required>
+                  <option value="">Velg …</option>
+                  <option value="henting">Henting hjemme / på jobb</option>
+                  <option value="innlevering">Jeg leverer inn i butikken</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="b-name">Navn</label>
+                <input id="b-name" required placeholder="Ditt navn" autocomplete="name" />
+              </div>
+              <div class="form-row">
+                <label for="b-phone">Telefon</label>
+                <input id="b-phone" type="tel" required placeholder="Mobilnummer" autocomplete="tel" />
+              </div>
+              <p class="booking-summary" id="booking-summary">Velg dag og tid for å fortsette.</p>
+              <button class="btn-gold" type="submit">Bekreft bestilling</button>
+            </form>
+            <div class="booking-success" id="booking-success" hidden>
+              <div class="check" aria-hidden="true">✓</div>
+              <strong>Bestilling registrert (utkast)</strong>
+              <p>På en ferdig side får du bekreftelse og oppfølging fra Skøyen Renseri.</p>
+            </div>
+          </div>
         </div>
-        <div class="form-row">
-          <label for="t-phone">Telefon</label>
-          <input id="t-phone" type="tel" placeholder="Mobilnummer" autocomplete="tel" />
-        </div>
-        <div class="form-row">
-          <label for="t-what">Hva skal hentes?</label>
-          <select id="t-what">
-            <option>Skjorter / tøy</option>
-            <option>Dyner / tepper</option>
-            <option>Uniformer</option>
-            <option>Annet</option>
-          </select>
-        </div>
-        <button type="submit" class="btn-gold">Send forespørsel</button>
-        <p class="book-note">Demo-skjema — ingen data sendes.</p>
-      </form>
     </div>
   </section>
 
@@ -374,6 +445,89 @@
       <a class="msg" href="#bestill" id="chatToBook">Bestill henting</a>
     </div>
   </div>
+
+  <script>
+    (function () {
+      var months = [
+        { y: 2026, m: 8, label: "September 2026", start: 1, days: 30 },
+        { y: 2026, m: 9, label: "Oktober 2026", start: 3, days: 31 }
+      ];
+      var mi = 0;
+      var selectedDay = null;
+      var selectedTime = null;
+      var calDays = document.getElementById("cal-days");
+      var calLabel = document.getElementById("cal-label");
+      var summary = document.getElementById("booking-summary");
+
+      function renderCal() {
+        if (!calDays || !calLabel) return;
+        var info = months[mi];
+        calLabel.textContent = info.label;
+        calDays.innerHTML = "";
+        for (var i = 0; i < info.start; i++) {
+          var empty = document.createElement("span");
+          empty.className = "cal-empty";
+          calDays.appendChild(empty);
+        }
+        for (var d = 1; d <= info.days; d++) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "cal-day";
+          btn.textContent = String(d);
+          btn.dataset.day = String(d);
+          var wd = (info.start + d - 1) % 7;
+          if (wd === 6) btn.classList.add("cal-sun");
+          if (selectedDay && selectedDay.mi === mi && selectedDay.d === d) btn.classList.add("selected");
+          btn.addEventListener("click", (function (day) {
+            return function () {
+              selectedDay = { mi: mi, d: day, label: months[mi].label };
+              renderCal();
+              updateSummary();
+            };
+          })(d));
+          calDays.appendChild(btn);
+        }
+      }
+      function updateSummary() {
+        if (!summary) return;
+        if (selectedDay && selectedTime) {
+          summary.textContent = "Valgt: " + selectedDay.d + ". " + selectedDay.label + " kl. " + selectedTime;
+        } else if (selectedDay) {
+          summary.textContent = "Valgt dag: " + selectedDay.d + ". " + selectedDay.label + " — velg tid.";
+        } else {
+          summary.textContent = "Velg dag og tid for å fortsette.";
+        }
+      }
+      var prev = document.getElementById("cal-prev");
+      var next = document.getElementById("cal-next");
+      if (prev) prev.addEventListener("click", function () { mi = Math.max(0, mi - 1); renderCal(); });
+      if (next) next.addEventListener("click", function () { mi = Math.min(months.length - 1, mi + 1); renderCal(); });
+      document.querySelectorAll(".slot").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          document.querySelectorAll(".slot").forEach(function (b) { b.classList.remove("selected"); });
+          btn.classList.add("selected");
+          selectedTime = btn.getAttribute("data-time");
+          updateSummary();
+        });
+      });
+      renderCal();
+
+      var bookingForm = document.getElementById("booking-form");
+      var bookingSuccess = document.getElementById("booking-success");
+      if (bookingForm) {
+        bookingForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!selectedDay || !selectedTime) {
+            if (summary) summary.textContent = "Velg både dag og tid før du bekrefter.";
+            return;
+          }
+          if (!bookingForm.checkValidity()) { bookingForm.reportValidity(); return; }
+          bookingForm.hidden = true;
+          if (bookingSuccess) bookingSuccess.hidden = false;
+        });
+      }
+    })();
+  </script>
 
   <script>
     (function () {
