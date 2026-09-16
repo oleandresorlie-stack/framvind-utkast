@@ -194,6 +194,17 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent)}
 .vipps-modal .vm-done.show{display:block}
 .vipps-modal .vm-done .big{font-size:2.2rem;margin-bottom:8px}
 
+/* Official Vipps marks (from developer.vippsmobilepay.com / button CDN) */
+.vipps-mark{display:inline-flex;align-items:center;gap:10px}
+.vipps-mark img{height:18px;width:auto;display:block}
+.choice .vipps-mark img{height:20px}
+.vipps-pay-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#ff5b24;color:#fff;border:none;border-radius:12px;padding:16px;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit}
+.vipps-pay-btn img{height:18px;width:auto}
+.vipps-pay-btn:hover{background:#ff985f}
+.vipps-modal .vm-logo{display:flex;align-items:center}
+.vipps-modal .vm-logo img{height:22px;width:auto}
+
+
 @media(max-width:900px){
   .products{grid-template-columns:1fr}
 }
@@ -442,7 +453,10 @@ footer a:hover{color:#ffb4b4}
             <div class="choice-row" style="margin-bottom:14px">
               <label class="choice">
                 <input type="radio" name="payment" value="vipps">
-                <div><b>Betal med Vipps nå</b><span>Demo — ingen ekte betaling</span></div>
+                <div>
+                  <span class="vipps-mark" aria-hidden="true"><img src="assets/vipps-logo.svg" alt=""></span>
+                  <b>Betal med Vipps nå</b><span>Demo — ingen ekte betaling</span>
+                </div>
               </label>
               <label class="choice">
                 <input type="radio" name="payment" value="senere" checked>
@@ -645,7 +659,7 @@ footer a:hover{color:#ffb4b4}
 <div class="vipps-overlay" id="vipps-overlay" role="dialog" aria-modal="true" aria-label="Vipps demo">
   <div class="vipps-modal">
     <div class="vm-head">
-      <div class="vm-logo">Vipps</div>
+      <div class="vm-logo"><img src="assets/vipps-logo-white.svg" alt="Vipps" width="96" height="24"></div>
       <button type="button" class="vm-x" id="vipps-close" aria-label="Lukk">×</button>
     </div>
     <div class="vm-body">
@@ -654,7 +668,7 @@ footer a:hover{color:#ffb4b4}
         <div class="vm-amount" id="vipps-amount">0 kr</div>
         <div class="vm-sub">Demo-betaling — ingen penger trekkes</div>
         <input class="vm-phone" id="vipps-phone" type="tel" inputmode="tel" placeholder="Mobilnummer" autocomplete="tel">
-        <button type="button" class="vm-confirm" id="vipps-confirm">Bekreft med Vipps</button>
+        <button type="button" class="vipps-pay-btn" id="vipps-confirm"><img src="assets/vipps-logo-white.svg" alt=""> Bekreft</button>
         <p class="vm-note">Dette er bare en demo. Ingen ekte Vipps-betaling.</p>
       </div>
       <div class="vm-done" id="vipps-done">
