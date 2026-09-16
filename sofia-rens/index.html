@@ -383,7 +383,7 @@ footer a:hover{color:#e8d68a}
     <div class="kicker" data-animate>Bestill</div>
     <h2 data-animate style="font-size:clamp(1.8rem,3.6vw,2.6rem)">Bestill rens — steg for steg</h2>
     <p class="lead" data-animate style="margin-top:14px">Velg varer, dag og tid, hente i butikk eller henting/levering (gratis over 300 kr), og hvordan du vil betale. (Utkast — demo.)</p>
-    <div class="price-banner" data-animate role="note">Eksempelpriser — endelig pris etter inspeksjon</div>
+    <div class="price-banner" data-animate role="note">Priser fra sofiarens.no/priser — endelig pris etter inspeksjon</div>
 
     <div class="booking-flow" id="booking-flow">
       <!-- 1. Varer -->
@@ -392,7 +392,7 @@ footer a:hover{color:#e8d68a}
         <p class="flow-help">Bruk + og −. Du må velge minst én vare for å bestille.</p>
         <div class="products" id="products"></div>
         <div class="grand-bar">
-          <span class="grand-label">Sum (eksempel)</span>
+          <span class="grand-label">Sum</span>
           <div class="grand-total"><span id="grand-total">0</span> kr</div>
         </div>
       </div>
@@ -749,20 +749,18 @@ footer a:hover{color:#e8d68a}
 
   // Booking: products + calendar + fulfillment + payment
   const PRODUCTS = [
-    {id:'skjorte', name:'Skjorte', price:99},
-    {id:'bluse', name:'Bluse', price:149},
-    {id:'dress', name:'Dress (jakke+bukse)', price:549},
-    {id:'dressjakke', name:'Dressjakke', price:299},
-    {id:'bukse', name:'Bukse / jeans', price:249},
-    {id:'vest', name:'Vest', price:149},
-    {id:'kjole', name:'Kjole', price:399},
-    {id:'skjort', name:'Skjørt', price:229},
-    {id:'genser', name:'Genser / kofte', price:189},
-    {id:'ytterjakke', name:'Ytterjakke / frakk', price:449},
-    {id:'dunjakke', name:'Dunjakke', price:499},
-    {id:'gardiner', name:'Gardiner (per lengde)', price:349},
-    {id:'duk', name:'Duk', price:179},
-    {id:'slips', name:'Slips / sløyfe', price:79}
+    {id:'jakker', name:'JAKKER', price:295},
+    {id:'bukser', name:'BUKSER', price:295},
+    {id:'dress', name:'DRESS / DRAKT', price:550},
+    {id:'vest', name:'VEST', price:200},
+    {id:'slips', name:'SLIPS', price:195},
+    {id:'frakk', name:'FRAKK', price:595},
+    {id:'ytterjakke-tynn', name:'YTTERJAKKE TYNN', price:495},
+    {id:'dunjakke', name:'DUNJAKKE', price:595},
+    {id:'kjoler', name:'KJOLER', price:450},
+    {id:'skjort', name:'SKJØRT', price:295},
+    {id:'bluser', name:'BLUSER', price:295},
+    {id:'genser', name:'GENSER', price:295}
   ];
   const qty = Object.fromEntries(PRODUCTS.map(p => [p.id, 0]));
   let vippsPaid = false;
@@ -959,7 +957,7 @@ footer a:hover{color:#e8d68a}
       html = '<strong>Dine varer</strong><ul>' +
         items.map(i => '<li><span>' + i.name + ' × ' + i.q + '</span><span>' + fmt(i.line) + ' kr</span></li>').join('') +
         '</ul>';
-      html += '<div class="sum-total"><span>Totalt (eksempel)</span><span>' + fmt(cartTotal()) + ' kr</span></div>';
+      html += '<div class="sum-total"><span>Totalt</span><span>' + fmt(cartTotal()) + ' kr</span></div>';
       html += '<div class="sum-meta">';
       if (selectedDay && selectedTime) {
         html += '<div><strong>Tid:</strong> ' + selectedDay.d + '. ' + selectedDay.label + ' kl. ' + selectedTime + '</div>';
