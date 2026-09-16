@@ -1,8 +1,9 @@
 # BA Rens og Vaskeri AS — Westcon-skall preview #3 (last)
 
 Built 2026-09-16 ~10:24 Europe/Oslo (UTC+2).
+DELTA OLE LOCK 2026-09-16 ~13:45 Europe/Oslo (UTC+2): removed invented henting/levering (fulfillment radios, address, CTAs, chat push, payment copy). Booking = time for innlevering i butikk only. Live site does not offer pickup/delivery.
 
-- Layout/design shell: Skøyen×Westcon LOCKED template (dark navy chrome, Inter, Intake First-screen Convert, dismissible chat, calendar+slots, Review Loop SMS 1–5, Night Rescue/kveld, garment steppers + live total, Vipps demo, hente/levering, Framvind footer)
+- Layout/design shell: Skøyen×Westcon LOCKED template (dark navy chrome, Inter, Intake First-screen Convert, dismissible chat, calendar+slots, Review Loop SMS 1–5, Night Rescue/kveld, garment steppers + live total, Vipps demo, Framvind footer)
 - Brand/content: BA Rens og Vaskeri AS from https://rensogvasketeria.no/
 - Accent: #0086b4 (live CSS `--primary`) + hover/glow #2fb5d8 (`--primary-glow`) / soft rgba(0,134,180,.18) — navy chrome unchanged
 - Phone (prospect brief): 22 55 37 89 · Email (live): bavask@gmail.com · Addr: Bygdøy allé 63, 0266 Oslo · Org.nr 951 684 767 (Brreg: BA RENS OG VASKETERIA AS)
@@ -12,6 +13,8 @@ Built 2026-09-16 ~10:24 Europe/Oslo (UTC+2).
 - Logo: wordmark BA/RENS/OG VASKERI on #0086b4 (live had sparkles icon badge only — no proprietary logo PNG)
 - Assets: hero + Folkemuseum reference + hero crops from live /assets/; Vipps SVGs from template
 - Skøyen template itself NOT modified
+
+- OLE LOCK: no pickup/delivery service claimed — CTAs «Book tid», payment «Betal i butikk», chat need→urgency→contact
 
 ## Paths
 - Host: `/workspace/framvind-utkast-host/ba-rens/`

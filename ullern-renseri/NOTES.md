@@ -1,8 +1,9 @@
 # Ullern Renseri — Westcon-skall preview #2
 
 Built 2026-09-16 ~10:20 Europe/Oslo (UTC+2).
+DELTA OLE LOCK 2026-09-16 ~13:45 Europe/Oslo (UTC+2): removed invented henting/levering (fulfillment radios, address, CTAs, chat push, payment copy). Booking = time for innlevering i butikk only. Live site does not offer pickup/delivery.
 
-- Layout/design shell: Skøyen×Westcon LOCKED template (dark navy chrome, Inter, Intake First-screen Convert, dismissible chat, calendar+slots, Review Loop SMS 1–5, Night Rescue/kveld, garment steppers + live total, Vipps demo, hente/levering, Framvind footer)
+- Layout/design shell: Skøyen×Westcon LOCKED template (dark navy chrome, Inter, Intake First-screen Convert, dismissible chat, calendar+slots, Review Loop SMS 1–5, Night Rescue/kveld, garment steppers + live total, Vipps demo, Framvind footer)
 - Brand/content: Ullern Renseri from https://www.ullernrenseri.no/
 - Accent: #028bb5 (logo blue sampled from Ullernrenseri-logo) + hover #03a8d4 / soft rgba(2,139,181,.18) — navy chrome unchanged. Live WP theme customizer still lists #950b0b (shared with Skøyen sister site); logo brand blue used instead.
 - Phone (prospect brief): 22 52 58 58 · also on live 483 95 977 · Email: post@ullernrenseri.no · Addr: Ullern allé 41, 0381 Oslo · Org.nr 934 079 736
@@ -12,6 +13,8 @@ Built 2026-09-16 ~10:20 Europe/Oslo (UTC+2).
 - Logo: live blue square wordmark+icons (Ullernrenseri-logo-1.jpg) → assets/logo.png + favicon.png; header wordmark PNG also on live
 - Assets: hero + gallery + service photos from live /wp-content/uploads/ (service webps shared with Skøyen live media)
 - Skøyen template itself NOT modified
+
+- OLE LOCK: no pickup/delivery service claimed — CTAs «Book tid», payment «Betal i butikk», chat need→urgency→contact
 
 ## Paths
 - Host: `/workspace/framvind-utkast-host/ullern-renseri/`

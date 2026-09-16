@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BA Rens og Vaskeri – Rens og vask på Bygdøy allé (utkast)</title>
-<meta name="description" content="BA Rens og Vaskeri AS – profesjonell rens, vask og tepperens. Bygdøy allé 63, 0266 Oslo. Ring 22 55 37 89 eller bestill henting.">
+<meta name="description" content="BA Rens og Vaskeri AS – profesjonell rens, vask og tepperens. Bygdøy allé 63, 0266 Oslo. Ring 22 55 37 89 eller book tid for innlevering i butikk.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -162,8 +162,6 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent)}
 .choice input{width:auto;margin:3px 0 0;accent-color:var(--accent);flex-shrink:0}
 .choice b{display:block;font-size:.95rem;color:var(--text)}
 .choice span{display:block;font-size:.82rem;color:var(--text-2);margin-top:2px}
-#b-address-wrap{display:none}
-#b-address-wrap.show{display:block}
 .summary-box{background:var(--navy);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:.9rem;color:var(--text-2);margin:10px 0 14px}
 .summary-box strong{color:var(--text)}
 .summary-box ul{list-style:none;margin:8px 0;padding:0}
@@ -316,7 +314,7 @@ footer a:hover{color:#9ad4f0}
     <a class="logo" href="#start"><img src="assets/logo.png" alt="BA Rens og Vaskeri" width="44" height="44"><span>BA Rens</span></a>
     <div class="nav-links" id="navLinks">
       <a href="#tjenester">Tjenester</a>
-      <a href="#booking">Bestill henting</a>
+      <a href="#booking">Book tid</a>
       <a href="#anmeldelser">Anmeldelser</a>
       <a href="#anmeldelse-flyt">Etter jobb</a>
       <a href="#kveld">Kveld</a>
@@ -338,7 +336,7 @@ footer a:hover{color:#9ad4f0}
     <p data-animate style="transition-delay:.1s">Velkommen til BA Rens og Vaskeri AS. Profesjonell rens, vask og tepperens — med omtanke og presisjon. Bygdøy allé 63, 0266 Oslo. Kvalitet siden 1964.</p>
     <div class="hero-cta" data-animate style="transition-delay:.2s">
       <a href="tel:+4722553789" class="btn btn-primary btn-lg pulse-glow">Ring 22 55 37 89</a>
-      <a href="#booking" class="btn btn-ghost btn-lg">Bestill henting</a>
+      <a href="#booking" class="btn btn-ghost btn-lg">Book tid</a>
     </div>
     <div class="trust stagger">
       <div data-animate><div class="num">1964</div><p>Kvalitet siden — fra live</p></div>
@@ -359,13 +357,13 @@ footer a:hover{color:#9ad4f0}
         <div class="card-media"><img src="assets/service-dyner.webp" alt="Rens av klær" loading="lazy"></div>
         <h3>Rens av klær</h3>
         <p>Profesjonell rens av dresser, kjoler, frakker, bunader og delikate plagg.</p>
-        <a class="btn btn-ghost btn-sm" href="#booking" style="margin-top:14px">Bestill henting</a>
+        <a class="btn btn-ghost btn-sm" href="#booking" style="margin-top:14px">Book tid</a>
       </article>
       <article class="card" id="vask" data-animate>
         <div class="card-media"><img src="assets/service-skjorte.webp" alt="Vask og tørk" loading="lazy"></div>
         <h3>Vask &amp; tørk</h3>
         <p>Selvbetjent og full service vask til konkurransedyktige priser — pluss stryking.</p>
-        <a class="btn btn-ghost btn-sm" href="#booking" style="margin-top:14px">Bestill henting</a>
+        <a class="btn btn-ghost btn-sm" href="#booking" style="margin-top:14px">Book tid</a>
       </article>
       <article class="card" id="tepperens" data-animate>
         <div class="card-media"><img src="assets/service-uniformer.webp" alt="Tepperens" loading="lazy"></div>
@@ -377,12 +375,12 @@ footer a:hover{color:#9ad4f0}
   </div>
 </section>
 
-<!-- BOOKING — products + calendar + fulfillment + payment -->
+<!-- BOOKING — products + calendar + payment (in-store only) -->
 <section id="booking" class="dark-band">
   <div class="wrap">
     <div class="kicker" data-animate>Bestill</div>
     <h2 data-animate style="font-size:clamp(1.8rem,3.6vw,2.6rem)">Bestill rens — steg for steg</h2>
-    <p class="lead" data-animate style="margin-top:14px">Velg varer, dag og tid, henting eller levering, og hvordan du vil betale. (Utkast — demo.)</p>
+    <p class="lead" data-animate style="margin-top:14px">Velg varer, dag og tid for innlevering i butikk, og hvordan du vil betale. (Utkast — demo.)</p>
     <div class="price-banner" data-animate role="note">Eksempelpriser — endelig pris etter inspeksjon</div>
 
     <div class="booking-flow" id="booking-flow">
@@ -410,7 +408,7 @@ footer a:hover{color:#9ad4f0}
             <span>Ma</span><span>Ti</span><span>On</span><span>To</span><span>Fr</span><span>Lø</span><span>Sø</span>
           </div>
           <div class="cal-days" id="cal-days"></div>
-          <p class="cal-hint">Velg en dag, deretter et tidspunkt.</p>
+          <p class="cal-hint">Velg dag og tid for innlevering i butikk.</p>
         </div>
 
         <div class="booking-side" data-animate="from-right">
@@ -424,21 +422,6 @@ footer a:hover{color:#9ad4f0}
               <button type="button" class="slot" data-time="16:00">16:00</button>
             </div>
 
-            <p class="slots-label" style="margin-top:6px">4. Henting eller levering</p>
-            <div class="choice-row" style="margin-bottom:14px">
-              <label class="choice">
-                <input type="radio" name="fulfillment" value="hente" checked>
-                <div><b>Hente i butikk</b><span>Bygdøy allé 63, Frogner</span></div>
-              </label>
-              <label class="choice">
-                <input type="radio" name="fulfillment" value="levering">
-                <div><b>Levering</b><span>Vi leverer til adressen din</span></div>
-              </label>
-            </div>
-            <div class="form-row" id="b-address-wrap">
-              <label for="b-address">Leveringsadresse</label>
-              <input id="b-address" placeholder="Gateadresse, postnr og sted" autocomplete="street-address">
-            </div>
 
             <div class="form-row">
               <label for="b-name">Navn</label>
@@ -449,7 +432,7 @@ footer a:hover{color:#9ad4f0}
               <input id="b-phone" type="tel" required placeholder="Mobilnummer" autocomplete="tel">
             </div>
 
-            <p class="slots-label">5. Betaling</p>
+            <p class="slots-label" style="margin-top:6px">4. Betaling</p>
             <div class="choice-row" style="margin-bottom:14px">
               <label class="choice">
                 <input type="radio" name="payment" value="vipps">
@@ -460,11 +443,11 @@ footer a:hover{color:#9ad4f0}
               </label>
               <label class="choice">
                 <input type="radio" name="payment" value="senere" checked>
-                <div><b>Betal ved henting/levering</b><span>Betaler når du får varene</span></div>
+                <div><b>Betal i butikk</b><span>Betaler ved innlevering / henting i butikk</span></div>
               </label>
             </div>
 
-            <p class="slots-label">6. Oppsummering</p>
+            <p class="slots-label">5. Oppsummering</p>
             <div class="summary-box" id="booking-summary" aria-live="polite">
               <strong>Ingen varer valgt ennå</strong>
               <div class="sum-meta">Velg varer, dag og tid for å fortsette.</div>
@@ -552,7 +535,7 @@ footer a:hover{color:#9ad4f0}
       <p class="lead" data-animate style="margin-top:14px">Åpent man–fre 08:00–18:00 · lør/søn stengt. Utenom åpningstid skal henvendelser ikke bare forsvinne i personsvar.</p>
       <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap" data-animate>
         <a class="btn btn-primary btn-lg" href="tel:+4722553789">Ring 22 55 37 89</a>
-        <a class="btn btn-ghost btn-lg" href="#booking">Bestill henting</a>
+        <a class="btn btn-ghost btn-lg" href="#booking">Book tid</a>
         <button type="button" class="btn btn-ghost btn-lg" id="open-chat-kveld">Åpne chat</button>
       </div>
     </div>
@@ -561,7 +544,7 @@ footer a:hover{color:#9ad4f0}
       <ul>
         <li>Chat er åpen — legg igjen hva du trenger, vi følger opp.</li>
         <li>Ubesvarte anrop følges opp — du blir ikke glemt.</li>
-        <li>Bestill henting her når som helst — velg dag og tid.</li>
+        <li>Book tid for innlevering i butikk når som helst — velg dag og tid.</li>
       </ul>
     </div>
   </div>
@@ -630,7 +613,7 @@ footer a:hover{color:#9ad4f0}
         <h5>Snarveier</h5>
         <ul>
           <li><a href="#tjenester">Tjenester</a></li>
-          <li><a href="#booking">Bestill henting</a></li>
+          <li><a href="#booking">Book tid</a></li>
           <li><a href="#anmeldelser">Anmeldelser</a></li>
           <li><a href="#kveld">Kveld</a></li>
         </ul>
@@ -732,17 +715,16 @@ footer a:hover{color:#9ad4f0}
     const t=inp.value.trim();if(!t)return;
     const u=document.createElement('div');u.className='msg user';u.textContent=t;log.appendChild(u);inp.value='';log.scrollTop=log.scrollHeight;
     setTimeout(()=>{
-      if(chatStep===0){addBot('Takk — notert. Vil du ha <strong>henting</strong>, eller <strong>leverer du inn</strong> i butikken på Bygdøy allé 63?');chatStep=1;}
-      else if(chatStep===1){addBot('Skjønner. Hvor <strong>haster</strong> det? Velg: i dag / denne uken / bare et tilbud.');chatStep=2;}
-      else if(chatStep===2){addBot('Flott. Hva er beste <strong>telefonnummer</strong> (eller e-post) så vi kan følge opp?');chatStep=3;}
-      else if(chatStep===3){addBot('Takk! Vi har det vi trenger. (Utkast) På en ferdig side går dette rett til BA Rens og Vaskeri — eller ring <a href="tel:+4722553789">22 55 37 89</a>.');chatStep=4;}
-      else{addBot('Mottatt. Ring gjerne <a href="tel:+4722553789">22 55 37 89</a> eller <a href="#booking">bestill henting</a>.');}
+      if(chatStep===0){addBot('Takk — notert. Hvor <strong>haster</strong> det? Velg: i dag / denne uken / bare et tilbud.');chatStep=1;}
+      else if(chatStep===1){addBot('Skjønner. Hva er beste <strong>telefonnummer</strong> (eller e-post) så vi kan følge opp?');chatStep=2;}
+      else if(chatStep===2){addBot('Takk! Vi har det vi trenger. Innlevering skjer i butikk på Bygdøy allé 63. (Utkast) På en ferdig side går dette rett til BA Rens og Vaskeri — eller ring <a href="tel:+4722553789">22 55 37 89</a>.');chatStep=3;}
+      else{addBot('Mottatt. Ring gjerne <a href="tel:+4722553789">22 55 37 89</a> eller <a href="#booking">book tid</a> for innlevering i butikk.');}
     },450);
   }
   document.getElementById('chatSend').addEventListener('click',send);
   inp.addEventListener('keydown',e=>{if(e.key==='Enter')send();});
 
-  // Booking: products + calendar + fulfillment + payment
+  // Booking: products + calendar + payment (in-store drop-off)
   const PRODUCTS = [
     {id:'skjorte', name:'Skjorte', price:99},
     {id:'bluse', name:'Bluse', price:149},
@@ -767,9 +749,6 @@ footer a:hover{color:#9ad4f0}
   const summaryEl = document.getElementById('booking-summary');
   const submitBtn = document.getElementById('booking-submit');
   const errEl = document.getElementById('booking-err');
-  const addressWrap = document.getElementById('b-address-wrap');
-  const addressInput = document.getElementById('b-address');
-
   function fmt(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
 
   function cartItems(){
@@ -869,32 +848,17 @@ footer a:hover{color:#9ad4f0}
     });
   });
 
-  function fulfillment(){
-    const el = document.querySelector('input[name="fulfillment"]:checked');
-    return el ? el.value : 'hente';
-  }
   function payment(){
     const el = document.querySelector('input[name="payment"]:checked');
     return el ? el.value : 'senere';
   }
 
-  function syncFulfillmentUI(){
-    const isDel = fulfillment() === 'levering';
-    addressWrap.classList.toggle('show', isDel);
-    addressInput.required = isDel;
-    if (!isDel) addressInput.value = '';
-  }
-
-  document.querySelectorAll('input[name="fulfillment"]').forEach(r => {
-    r.addEventListener('change', () => { syncFulfillmentUI(); updateBookingUI(); });
-  });
   document.querySelectorAll('input[name="payment"]').forEach(r => {
     r.addEventListener('change', () => {
       if (payment() !== 'vipps') vippsPaid = false;
       updateBookingUI();
     });
   });
-  addressInput.addEventListener('input', updateBookingUI);
   document.getElementById('b-name').addEventListener('input', updateBookingUI);
   document.getElementById('b-phone').addEventListener('input', updateBookingUI);
 
@@ -938,7 +902,6 @@ footer a:hover{color:#9ad4f0}
     const items = cartItems();
     if (!items.length) return {ok:false, msg:'Velg minst én vare.'};
     if (!selectedDay || !selectedTime) return {ok:false, msg:'Velg både dag og tid.'};
-    if (fulfillment() === 'levering' && !addressInput.value.trim()) return {ok:false, msg:'Skriv inn leveringsadresse.'};
     const name = document.getElementById('b-name').value.trim();
     const phone = document.getElementById('b-phone').value.trim();
     if (!name || !phone) return {ok:false, msg:'Fyll inn navn og telefon.'};
@@ -949,7 +912,6 @@ footer a:hover{color:#9ad4f0}
   function updateBookingUI(){
     grandEl.textContent = fmt(cartTotal());
     const items = cartItems();
-    const ful = fulfillment();
     const pay = payment();
     let html = '';
     if (!items.length) {
@@ -961,22 +923,17 @@ footer a:hover{color:#9ad4f0}
       html += '<div class="sum-total"><span>Totalt (eksempel)</span><span>' + fmt(cartTotal()) + ' kr</span></div>';
       html += '<div class="sum-meta">';
       if (selectedDay && selectedTime) {
-        html += '<div><strong>Tid:</strong> ' + selectedDay.d + '. ' + selectedDay.label + ' kl. ' + selectedTime + '</div>';
+        html += '<div><strong>Tid for innlevering:</strong> ' + selectedDay.d + '. ' + selectedDay.label + ' kl. ' + selectedTime + '</div>';
       } else if (selectedDay) {
         html += '<div><strong>Dag:</strong> ' + selectedDay.d + '. ' + selectedDay.label + ' — velg tid</div>';
       } else {
-        html += '<div>Velg dag og tid</div>';
+        html += '<div>Velg dag og tid for innlevering i butikk</div>';
       }
-      if (ful === 'levering') {
-        const adr = addressInput.value.trim();
-        html += '<div><strong>Levering:</strong> ' + (adr || 'adresse mangler') + '</div>';
-      } else {
-        html += '<div><strong>Hente i butikk</strong> — Bygdøy allé 63</div>';
-      }
+      html += '<div><strong>Innlevering i butikk</strong> — Bygdøy allé 63</div>';
       if (pay === 'vipps') {
         html += '<div><strong>Betaling:</strong> Vipps nå' + (vippsPaid ? ' ✓ (demo)' : ' — ikke bekreftet') + '</div>';
       } else {
-        html += '<div><strong>Betaling:</strong> Ved henting/levering</div>';
+        html += '<div><strong>Betaling:</strong> I butikk</div>';
       }
       html += '</div>';
     }
@@ -986,8 +943,7 @@ footer a:hover{color:#9ad4f0}
     // Enable submit when basics present; Vipps opens on click if needed
     const basicsOk = items.length && selectedDay && selectedTime &&
       document.getElementById('b-name').value.trim() &&
-      document.getElementById('b-phone').value.trim() &&
-      (ful !== 'levering' || addressInput.value.trim());
+      document.getElementById('b-phone').value.trim();
     submitBtn.disabled = !basicsOk;
     if (basicsOk) showErr('');
   }
@@ -1007,15 +963,12 @@ footer a:hover{color:#9ad4f0}
     if (!e.target.checkValidity()) { e.target.reportValidity(); return; }
 
     const items = cartItems();
-    const ful = fulfillment();
     const pay = payment();
     let detail = 'Varer: ' + items.map(i => i.name + ' × ' + i.q).join(', ') +
       '. Sum: ' + fmt(cartTotal()) + ' kr. ' +
       selectedDay.d + '. ' + selectedDay.label + ' kl. ' + selectedTime + '. ';
-    detail += ful === 'levering'
-      ? ('Levering til ' + addressInput.value.trim() + '. ')
-      : 'Hente i butikk. ';
-    detail += pay === 'vipps' ? 'Betalt med Vipps (demo).' : 'Betaling ved henting/levering.';
+    detail += 'Innlevering i butikk (Bygdøy allé 63). ';
+    detail += pay === 'vipps' ? 'Betalt med Vipps (demo).' : 'Betaling i butikk.';
 
     document.querySelectorAll('#booking-flow .flow-block, #booking-flow .calendar-card').forEach(el => { el.style.display = 'none'; });
     e.target.style.display = 'none';
@@ -1027,7 +980,6 @@ footer a:hover{color:#9ad4f0}
 
   renderProducts();
   renderCal();
-  syncFulfillmentUI();
   updateBookingUI();
 })();
 </script>

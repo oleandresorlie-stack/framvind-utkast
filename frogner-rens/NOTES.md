@@ -1,8 +1,9 @@
 # Frogner Rens og Vask AS — Westcon-skall preview #1
 
 Built 2026-09-16 ~08:17 Europe/Oslo (UTC+2).
+DELTA OLE LOCK 2026-09-16 ~13:45 Europe/Oslo (UTC+2): removed invented henting/levering (fulfillment radios, address, CTAs, chat push, payment copy). Booking = time for innlevering i butikk only. Live site does not offer pickup/delivery.
 
-- Layout/design shell: Skøyen×Westcon LOCKED template (dark navy chrome, Inter, Intake First-screen Convert, dismissible chat, calendar+slots, Review Loop SMS 1–5, Night Rescue/kveld, garment steppers + live total, Vipps demo, hente/levering, Framvind footer)
+- Layout/design shell: Skøyen×Westcon LOCKED template (dark navy chrome, Inter, Intake First-screen Convert, dismissible chat, calendar+slots, Review Loop SMS 1–5, Night Rescue/kveld, garment steppers + live total, Vipps demo, Framvind footer)
 - Brand/content: Frogner Rens og Vask AS from https://www.frognerrens.no/
 - Accent: #0080c0 (live icon fill rgba(0,128,192)) + hover #0099e0 / soft rgba(0,128,192,.18) — navy chrome unchanged
 - Phone (prospect brief): 22 42 44 84 · Email: post@frognerrens.no · Addr: Frognerveien 44A, 0266 Oslo · Org.nr 976 020 782
@@ -12,6 +13,8 @@ Built 2026-09-16 ~08:17 Europe/Oslo (UTC+2).
 - Logo: wordmark FR/RENS/OG VASK on #0080c0 (live had no proprietary logo PNG; CMS favicon was Helthjem — not used)
 - Assets: hero + gallery + service photos from live /uploads/
 - Skøyen template itself NOT modified
+
+- OLE LOCK: no pickup/delivery service claimed — CTAs «Book tid», payment «Betal i butikk», chat need→urgency→contact
 
 ## Paths
 - Host: `/workspace/framvind-utkast-host/frogner-rens/`
