@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fagerborg Renseri Jessheim – Rens og vask (utkast)</title>
+<meta name="description" content="Fagerborg Renseri Jessheim AS – rens og vask. Veiberggata 2, 2050 Jessheim. Ring 474 57 477 eller book tid.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1420;
+  --navy-2:#0f1e30;
+  --surface:#152840;
+  --surface-2:#1c3352;
+  --line:rgba(255,255,255,.08);
+  --accent:#00ace8;          /* Fagerborg Jessheim */
+  --accent-deep:#007ba7;
+  --accent-soft:rgba(0,172,232,0.18);
+  --accent-hover:#5ed0f5;
+  --cyan:#8cd9f4;
+  --text:#eef4fa;
+  --text-2:#9fb3c8;
+  --radius:14px;
+  --ok:#2ecc71;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--navy);color:var(--text);line-height:1.6;overflow-x:hidden;padding-bottom:88px}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{line-height:1.15;font-weight:800;letter-spacing:-.02em}
+section{padding:96px 0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px}
+.kicker::before{content:"";width:28px;height:2px;background:var(--accent)}
+.lead{color:var(--text-2);font-size:1.12rem;max-width:680px}
+
+[data-animate]{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+[data-animate="from-left"]{transform:translateX(-40px)}
+[data-animate="from-right"]{transform:translateX(40px)}
+[data-animate="scale"]{transform:scale(.94)}
+[data-animate].visible{opacity:1;transform:none}
+.stagger>*:nth-child(1){transition-delay:.05s}
+.stagger>*:nth-child(2){transition-delay:.13s}
+.stagger>*:nth-child(3){transition-delay:.21s}
+.stagger>*:nth-child(4){transition-delay:.29s}
+.stagger>*:nth-child(5){transition-delay:.37s}
+.stagger>*:nth-child(6){transition-delay:.45s}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 18px rgba(0,172,232,.4)}50%{box-shadow:0 0 38px rgba(0,172,232,.7)}}
+.pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){[data-animate]{opacity:1;transform:none;transition:none}.pulse-glow{animation:none}}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .3s ease;padding:18px 0;background:linear-gradient(180deg,rgba(10,20,32,.9),rgba(10,20,32,0))}
+nav.scrolled{background:rgba(10,20,32,.94);backdrop-filter:blur(14px);padding:10px 0;border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800}
+.logo img{height:44px;width:44px;object-fit:contain;background:#fff;padding:4px;border-radius:10px}
+.logo span{font-size:1.05rem}
+.nav-links{display:flex;align-items:center;gap:22px;font-size:.92rem;font-weight:500;color:var(--text-2)}
+.nav-links a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:700;font-size:.95rem;transition:all .25s ease;cursor:pointer;border:none;font-family:inherit}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--line);color:var(--text);background:rgba(255,255,255,.03)}
+.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+.btn-lg{padding:16px 26px;font-size:1.05rem}
+.btn-block{width:100%}
+.btn-sm{padding:8px 14px;font-size:.85rem}
+.burger{display:none;background:none;border:none;color:var(--text);font-size:1.6rem;cursor:pointer}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:140px 0 80px;background:var(--navy);overflow:hidden}
+.hero-media{position:absolute;inset:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;opacity:.45}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(10,20,32,.96) 36%,rgba(10,20,32,.7) 65%,rgba(10,20,32,.45))}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:120px;background:linear-gradient(180deg,transparent,var(--navy))}
+.hero-inner{position:relative;z-index:2;max-width:720px}
+.hero h1{font-size:clamp(2.4rem,5.4vw,4rem);margin-bottom:22px}
+.hero h1 .accent{color:#5ed0f5}
+.hero p{font-size:1.15rem;color:var(--text-2);max-width:580px;margin-bottom:28px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.trust{display:flex;gap:32px;flex-wrap:wrap}
+.trust div{min-width:100px}
+.trust .num{font-size:1.7rem;font-weight:900;color:#fff}
+.trust .num em{font-style:normal;color:#5ed0f5}
+.trust p{font-size:.82rem;color:var(--text-2);margin:0}
+
+/* Cards / grids */
+.grid{display:grid;gap:20px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;position:relative;overflow:hidden;transition:transform .25s ease,border-color .25s ease}
+.card:hover{transform:translateY(-5px);border-color:rgba(0,172,232,.45)}
+.card h3{font-size:1.08rem;margin:14px 0 8px}
+.card p{font-size:.92rem;color:var(--text-2)}
+.card .icon{width:44px;height:44px;border-radius:10px;background:var(--accent-soft);display:grid;place-items:center;font-size:1.3rem}
+.card .card-media{margin:-28px -28px 18px;aspect-ratio:16/10;overflow:hidden}
+.card .card-media img{width:100%;height:100%;object-fit:cover}
+.dark-band{background:var(--navy-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.split img{border-radius:var(--radius);border:1px solid var(--line)}
+.checklist{list-style:none;margin-top:20px;display:grid;gap:12px}
+.checklist li{display:flex;gap:12px;align-items:flex-start;color:var(--text-2);font-size:.98rem}
+.checklist li::before{content:"✓";color:#5ed0f5;font-weight:900;flex-shrink:0}
+
+/* Booking */
+.booking-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;margin-top:0}
+.calendar-card,.booking-side{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.cal-nav{background:var(--navy);border:1px solid var(--line);color:var(--text);width:40px;height:40px;border-radius:10px;cursor:pointer;font-size:1.3rem}
+.cal-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:8px;font-size:.75rem;color:var(--text-2);text-align:center;font-weight:600}
+.cal-days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal-day,.cal-empty{aspect-ratio:1;border-radius:10px;display:grid;place-items:center;font-size:.9rem;font-weight:600}
+.cal-empty{visibility:hidden}
+.cal-day{background:var(--navy);border:1px solid var(--line);color:var(--text);cursor:pointer}
+.cal-day:hover{border-color:var(--accent)}
+.cal-day.selected{background:var(--accent);border-color:var(--accent);color:#fff}
+.cal-day.cal-sun{opacity:.45;pointer-events:none}
+.cal-hint{font-size:.82rem;color:var(--text-2);margin-top:14px}
+.slots-label{font-size:.85rem;font-weight:700;color:var(--text-2);margin-bottom:10px}
+.slots{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.slot{background:var(--navy);border:1px solid var(--line);color:var(--text);padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer;font-family:inherit}
+.slot.selected,.slot:hover{border-color:var(--accent);background:var(--accent-soft)}
+label{font-size:.82rem;font-weight:600;color:var(--text-2);display:block;margin-bottom:6px}
+input,textarea,select{width:100%;background:var(--navy);border:1px solid var(--line);border-radius:10px;padding:14px 16px;color:var(--text);font-family:inherit;font-size:.95rem;margin-bottom:14px;transition:border-color .2s}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent)}
+.form-row{margin-bottom:4px}
+.booking-summary{font-size:.9rem;color:var(--text-2);margin:8px 0 14px;min-height:1.4em}
+.booking-success,.form-ok{display:none;background:rgba(46,204,113,.12);border:1px solid rgba(46,204,113,.4);color:#7ee2a8;border-radius:10px;padding:18px;margin-top:8px}
+.booking-success.show,.form-ok.show{display:block}
+.booking-success .check{font-size:1.6rem;margin-bottom:6px}
+
+/* Booking products + flow */
+.price-banner{margin-top:20px;padding:12px 16px;background:rgba(0,172,232,.14);border:1px solid rgba(0,172,232,.35);border-radius:12px;color:#ffc9c9;font-size:.92rem;font-weight:600}
+.booking-flow{margin-top:28px;display:grid;gap:22px}
+.flow-block{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.flow-block h3{font-size:1.05rem;margin-bottom:6px}
+.flow-block .flow-help{font-size:.88rem;color:var(--text-2);margin-bottom:16px}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.product-row{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--navy);border:1px solid var(--line);border-radius:12px;padding:12px 12px}
+.product-meta{min-width:0;flex:1}
+.product-meta .pname{font-weight:700;font-size:.92rem;line-height:1.25}
+.product-meta .pprice{font-size:.8rem;color:var(--text-2);margin-top:2px}
+.product-meta .pline{font-size:.78rem;color:#8cd9f4;margin-top:2px;min-height:1.1em}
+.stepper{display:inline-flex;align-items:center;gap:0;flex-shrink:0;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.stepper button{width:36px;height:36px;border:none;background:transparent;color:var(--text);font-size:1.15rem;font-weight:800;cursor:pointer;font-family:inherit;line-height:1}
+.stepper button:hover{background:var(--accent-soft);color:#fff}
+.stepper button:disabled{opacity:.35;cursor:not-allowed}
+.stepper .qty{min-width:28px;text-align:center;font-weight:800;font-size:.95rem}
+.grand-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:14px;padding:14px 16px;background:var(--navy);border:1px solid rgba(0,172,232,.4);border-radius:12px}
+.grand-bar .grand-label{font-size:.88rem;color:var(--text-2);font-weight:600}
+.grand-bar .grand-total{font-size:1.35rem;font-weight:900;color:#fff}
+.grand-bar .grand-total span{color:#5ed0f5}
+.choice-row{display:grid;gap:10px}
+.choice{display:flex;align-items:flex-start;gap:12px;background:var(--navy);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;transition:border-color .2s}
+.choice:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.choice input{width:auto;margin:3px 0 0;accent-color:var(--accent);flex-shrink:0}
+.choice b{display:block;font-size:.95rem;color:var(--text)}
+.choice span{display:block;font-size:.82rem;color:var(--text-2);margin-top:2px}
+.summary-box{background:var(--navy);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:.9rem;color:var(--text-2);margin:10px 0 14px}
+.summary-box strong{color:var(--text)}
+.summary-box ul{list-style:none;margin:8px 0;padding:0}
+.summary-box li{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px solid var(--line)}
+.summary-box li:last-child{border-bottom:none}
+.summary-box .sum-meta{margin-top:10px;display:grid;gap:4px}
+.summary-box .sum-total{margin-top:10px;font-size:1.05rem;font-weight:800;color:#fff;display:flex;justify-content:space-between}
+.btn:disabled,.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none!important}
+.booking-success .ok-title{font-size:1.15rem;display:block;margin-bottom:6px}
+.err-hint{color:#ff8a8a;font-size:.85rem;margin:6px 0 10px;display:none}
+.err-hint.show{display:block}
+
+/* Vipps demo modal */
+.vipps-overlay{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;padding:20px}
+.vipps-overlay.open{display:flex}
+.vipps-modal{width:min(380px,100%);background:#ff5b24;color:#fff;border-radius:18px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.5);font-family:inherit}
+.vipps-modal .vm-head{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,.12)}
+.vipps-modal .vm-logo{font-weight:900;font-size:1.35rem;letter-spacing:-.02em}
+.vipps-modal .vm-x{background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;opacity:.85;line-height:1;padding:4px 8px}
+.vipps-modal .vm-body{padding:24px 22px 28px;background:#fff;color:#1a1a1a}
+.vipps-modal .vm-amount{font-size:2rem;font-weight:900;margin:8px 0 4px}
+.vipps-modal .vm-sub{font-size:.88rem;color:#555;margin-bottom:18px}
+.vipps-modal .vm-phone{width:100%;background:#f3f3f3;border:1px solid #ddd;border-radius:10px;padding:14px 16px;font-size:1rem;font-family:inherit;margin-bottom:14px;color:#111}
+.vipps-modal .vm-confirm{width:100%;background:#ff5b24;color:#fff;border:none;border-radius:12px;padding:16px;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit}
+.vipps-modal .vm-confirm:hover{filter:brightness(1.05)}
+.vipps-modal .vm-note{font-size:.75rem;color:#888;margin-top:12px;text-align:center}
+.vipps-modal .vm-done{display:none;text-align:center;padding:12px 0}
+.vipps-modal .vm-done.show{display:block}
+.vipps-modal .vm-done .big{font-size:2.2rem;margin-bottom:8px}
+
+/* Official Vipps marks (from developer.vippsmobilepay.com / button CDN) */
+.vipps-mark{display:inline-flex;align-items:center;gap:10px}
+.vipps-mark img{height:18px;width:auto;display:block}
+.choice .vipps-mark img{height:20px}
+.vipps-pay-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#ff5b24;color:#fff;border:none;border-radius:12px;padding:16px;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit}
+.vipps-pay-btn img{height:18px;width:auto}
+.vipps-pay-btn:hover{background:#ff985f}
+.vipps-modal .vm-logo{display:flex;align-items:center}
+.vipps-modal .vm-logo img{height:22px;width:auto}
+
+
+@media(max-width:900px){
+  .products{grid-template-columns:1fr}
+}
+@media(min-width:701px) and (max-width:900px){
+  .products{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:901px){
+  .products{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .product-row{padding:10px}
+  .stepper button{width:40px;height:40px}
+}
+
+/* Reviews */
+.reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}
+.review-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.review-stars{color:#f5c542;letter-spacing:2px;margin-bottom:10px}
+.review-card blockquote{font-size:1.02rem;margin-bottom:12px}
+.review-card cite{font-size:.82rem;color:var(--text-2);font-style:normal}
+.review-reply{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:.88rem;color:var(--text-2)}
+.google-badge{display:inline-flex;align-items:center;gap:10px;background:var(--accent-soft);border:1px solid rgba(0,172,232,.35);border-radius:999px;padding:10px 18px;font-weight:700;margin-top:18px}
+.google-badge .stars{color:#f5c542}
+
+/* Review flow */
+.flow-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;counter-reset:step}
+.flow-step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;position:relative}
+.flow-step b{display:block;font-size:1.9rem;color:var(--accent);margin-bottom:8px}
+.flow-note{margin-top:28px;padding:18px 20px;background:rgba(0,172,232,.12);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;color:var(--text-2);font-size:.95rem}
+
+/* Night rescue */
+.night-band{background:linear-gradient(135deg,#0a1420 0%,#1a0a0c 50%,#0f1e30 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.night-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.night-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(0,172,232,.2);border:1px solid rgba(0,172,232,.4);color:#ffb4b4;padding:8px 14px;border-radius:999px;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px}
+.night-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.night-card li{list-style:none;display:flex;gap:12px;margin-bottom:12px;color:var(--text-2);font-size:.95rem}
+.night-card li::before{content:"🌙";flex-shrink:0}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:40px}
+.contact-info{display:grid;gap:14px}
+.contact-info .item{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.contact-info .item .ic{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);display:grid;place-items:center;flex-shrink:0}
+.contact-info .item b{display:block;font-size:.95rem}
+.contact-info .item span{font-size:.88rem;color:var(--text-2)}
+
+/* Gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.gallery-grid img{border-radius:var(--radius);border:1px solid var(--line);aspect-ratio:3/2;object-fit:cover;width:100%}
+
+/* Footer */
+footer{background:#060d16;border-top:1px solid var(--line);padding:56px 0 32px;font-size:.9rem;color:var(--text-2)}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+footer h5{color:var(--text);font-size:.9rem;margin-bottom:14px}
+footer li{list-style:none;margin-bottom:8px}
+footer a:hover{color:#ffb4b4}
+.foot-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem}
+.footer-disclaimer{color:#fff;font-weight:700;letter-spacing:.01em}
+
+/* Sticky mobile convert */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:180;display:none;gap:8px;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:rgba(6,13,22,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+.sticky-cta .btn{flex:1;padding:14px 10px}
+
+/* Chat */
+#chat-fab{position:fixed;bottom:24px;right:24px;z-index:200;width:60px;height:60px;border-radius:50%;background:var(--accent);border:none;color:#fff;font-size:1.5rem;cursor:pointer;box-shadow:0 8px 30px rgba(0,172,232,.55);transition:transform .2s;display:flex;align-items:center;justify-content:center}
+#chat-fab:hover{transform:scale(1.08)}
+#chat-fab.hidden{display:none}
+#chat-box{position:fixed;bottom:98px;right:24px;z-index:200;width:min(370px,calc(100vw - 32px));background:var(--navy-2);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 24px 70px rgba(0,0,0,.55);max-height:min(70vh,520px)}
+#chat-box.open{display:flex}
+.chat-head{background:var(--surface);padding:14px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line)}
+.chat-head .dot{width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok)}
+.chat-head b{font-size:.95rem}
+.chat-head span{font-size:.75rem;color:var(--text-2);display:block}
+.chat-head .chat-x{margin-left:auto;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;line-height:1;opacity:.7;padding:4px 8px}
+.chat-head .chat-x:hover{opacity:1}
+.chat-log{padding:16px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;flex:1;min-height:180px}
+.msg{padding:10px 14px;border-radius:12px;font-size:.88rem;max-width:85%}
+.msg.bot{background:var(--surface);border:1px solid var(--line);align-self:flex-start}
+.msg.user{background:var(--accent);color:#fff;font-weight:500;align-self:flex-end}
+.msg a{color:#ffb4b4;text-decoration:underline}
+.chat-input{display:flex;border-top:1px solid var(--line)}
+.chat-input input{border:none;border-radius:0;margin:0;background:var(--navy-2)}
+.chat-input button{background:none;border:none;color:#ff6b6b;font-weight:800;padding:0 18px;cursor:pointer;font-size:1.1rem}
+
+@media(max-width:900px){
+  .grid-3,.reviews-grid,.flow-steps,.gallery-grid{grid-template-columns:1fr}
+  .split,.contact-grid,.booking-grid,.night-inner{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,20,32,.98);flex-direction:column;padding:24px;border-bottom:1px solid var(--line);align-items:stretch}
+  .nav-links.open{display:flex}
+  .burger{display:block}
+  .sticky-cta{display:flex}
+  #chat-fab{bottom:86px}
+  #chat-box{bottom:160px}
+  body{padding-bottom:96px}
+}
+@media(max-width:560px){
+  .foot-grid{grid-template-columns:1fr}
+  section{padding:64px 0}
+  .hero{padding:120px 0 64px;min-height:auto}
+  .hero-cta .btn{width:100%}
+}
+</style>
+</head>
+<body id="start">
+
+<nav id="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#start"><img src="assets/logo.png" alt="Fagerborg Renseri Jessheim" width="44" height="44"><span>Fagerborg Jessheim</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#tjenester">Tjenester</a>
+      <a href="#booking">Book tid</a>
+      <a href="#anmeldelser">Anmeldelser</a>
+      <a href="#anmeldelse-flyt">Etter jobb</a>
+      <a href="#kveld">Kveld</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="tel:+4747457477" class="btn btn-primary" style="padding:10px 18px">Ring 474 57 477</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Meny">☰</button>
+  </div>
+</nav>
+
+<!-- HERO — First-screen Convert -->
+<header class="hero">
+  <div class="hero-media" aria-hidden="true">
+    <img src="assets/hero.jpg" alt="">
+  </div>
+  <div class="wrap hero-inner">
+    <div class="kicker" data-animate>Renseri · Jessheim · Ullensaker</div>
+    <h1 data-animate>Vask og rens — <span class="accent">over 30 år</span></h1>
+    <p data-animate style="transition-delay:.1s">Hos Fagerborg Jessheim vask og renseri tar vi vask og rens på alvor. Organiske materialer, faglig dyktighet — Veiberggata 2, sentralt på Jessheim.</p>
+    <div class="hero-cta" data-animate style="transition-delay:.2s">
+      <a href="tel:+4747457477" class="btn btn-primary btn-lg pulse-glow">Ring 474 57 477</a>
+      <a href="#booking" class="btn btn-ghost btn-lg">Book tid</a>
+    </div>
+    <div class="trust stagger">
+      <div data-animate><div class="num">Google</div><p>Profil · tall ikke verifisert</p></div>
+      <div data-animate><div class="num">Jessheim</div><p>Veiberggata 2</p></div>
+      <div data-animate><div class="num">Man–lør</div><p>Se åpningstider under</p></div>
+    </div>
+  </div>
+</header>
+
+<!-- TJENESTER -->
+<section id="tjenester">
+  <div class="wrap">
+    <div class="kicker" data-animate>Tjenester</div>
+    <h2 data-animate style="font-size:clamp(1.8rem,3.6vw,2.6rem)">Vi tilbyr rens og vask</h2>
+    <p class="lead" data-animate style="margin-top:14px">Tre tydelige tilbud fra live-siden — book tid for innlevering i butikk.</p>
+    <div class="grid grid-3 stagger" style="margin-top:44px">
+      <article class="card" id="rens-vask" data-animate>
+        <div class="card-media"><img src="assets/service-dyner.webp" alt="Rens & vask" loading="lazy"></div>
+        <h3>Rens & vask</h3>
+        <p>Vask og rens med miljøvennlige produkter — ingen fargestoffer, duftsåpe eller mykner som standard.</p>
+        <a class="btn btn-ghost btn-sm" href="#booking" style="margin-top:14px">Book tid</a>
+      </article>
+      <article class="card" id="bedrift" data-animate>
+        <div class="card-media"><img src="assets/service-uniformer.webp" alt="Bedriftstjenester" loading="lazy"></div>
+        <h3>Bedriftstjenester</h3>
+        <p>Konkurransedyktige priser for bedrifter i Ullensaker og omegn.</p>
+        <a class="btn btn-ghost btn-sm" href="#bestill" style="margin-top:14px">Be om tilbud</a>
+      </article>
+      <article class="card" id="skjorte" data-animate>
+        <div class="card-media"><img src="assets/service-skjorte.webp" alt="Gavekort" loading="lazy"></div>
+        <h3>Gavekort</h3>
+        <p>Enkelt å gi, hyggelig å få — bestem beløpet selv. Spør i butikken.</p>
+        <a class="btn btn-ghost btn-sm" href="#bestill" style="margin-top:14px">Kontakt oss</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING — products + calendar + payment (in-store only) -->
+<section id="booking" class="dark-band">
+  <div class="wrap">
+    <div class="kicker" data-animate>Bestill</div>
+    <h2 data-animate style="font-size:clamp(1.8rem,3.6vw,2.6rem)">Bestill rens — steg for steg</h2>
+    <p class="lead" data-animate style="margin-top:14px">Velg varer, dag og tid for innlevering i butikk, og hvordan du vil betale. (Utkast — demo.)</p>
+    <div class="price-banner" data-animate role="note">Eksempelpriser — endelig pris etter inspeksjon</div>
+
+    <div class="booking-flow" id="booking-flow">
+      <!-- 1. Varer -->
+      <div class="flow-block" data-animate>
+        <h3>1. Velg varer</h3>
+        <p class="flow-help">Bruk + og −. Du må velge minst én vare for å bestille.</p>
+        <div class="products" id="products"></div>
+        <div class="grand-bar">
+          <span class="grand-label">Sum (eksempel)</span>
+          <div class="grand-total"><span id="grand-total">0</span> kr</div>
+        </div>
+      </div>
+
+      <!-- 2+3. Dag/tid + rest -->
+      <div class="booking-grid">
+        <div class="calendar-card" aria-label="Kalender for booking" data-animate="from-left">
+          <h3 style="font-size:1.05rem;margin-bottom:14px">2. Velg dag</h3>
+          <div class="cal-header">
+            <button type="button" class="cal-nav" id="cal-prev" aria-label="Forrige måned">‹</button>
+            <strong id="cal-label">September 2026</strong>
+            <button type="button" class="cal-nav" id="cal-next" aria-label="Neste måned">›</button>
+          </div>
+          <div class="cal-weekdays" aria-hidden="true">
+            <span>Ma</span><span>Ti</span><span>On</span><span>To</span><span>Fr</span><span>Lø</span><span>Sø</span>
+          </div>
+          <div class="cal-days" id="cal-days"></div>
+          <p class="cal-hint">Velg dag og tid for innlevering i butikk.</p>
+        </div>
+
+        <div class="booking-side" data-animate="from-right">
+          <form id="booking-form" novalidate>
+            <p class="slots-label">3. Ønsket tid</p>
+            <div class="slots" id="slots">
+              <button type="button" class="slot" data-time="10:00">10:00</button>
+              <button type="button" class="slot" data-time="11:30">11:30</button>
+              <button type="button" class="slot" data-time="13:00">13:00</button>
+              <button type="button" class="slot" data-time="14:30">14:30</button>
+              <button type="button" class="slot" data-time="16:00">16:00</button>
+            </div>
+
+
+            <div class="form-row">
+              <label for="b-name">Navn</label>
+              <input id="b-name" required placeholder="Ditt navn" autocomplete="name">
+            </div>
+            <div class="form-row">
+              <label for="b-phone">Telefon</label>
+              <input id="b-phone" type="tel" required placeholder="Mobilnummer" autocomplete="tel">
+            </div>
+
+            <p class="slots-label" style="margin-top:6px">4. Betaling</p>
+            <div class="choice-row" style="margin-bottom:14px">
+              <label class="choice">
+                <input type="radio" name="payment" value="vipps">
+                <div>
+                  <span class="vipps-mark" aria-hidden="true"><img src="assets/vipps-logo.svg" alt=""></span>
+                  <b>Betal med Vipps nå</b><span>Demo — ingen ekte betaling</span>
+                </div>
+              </label>
+              <label class="choice">
+                <input type="radio" name="payment" value="senere" checked>
+                <div><b>Betal i butikk</b><span>Betaler ved innlevering / henting i butikk</span></div>
+              </label>
+            </div>
+
+            <p class="slots-label">5. Oppsummering</p>
+            <div class="summary-box" id="booking-summary" aria-live="polite">
+              <strong>Ingen varer valgt ennå</strong>
+              <div class="sum-meta">Velg varer, dag og tid for å fortsette.</div>
+            </div>
+            <p class="err-hint" id="booking-err" role="alert"></p>
+            <button class="btn btn-primary btn-block btn-lg" type="submit" id="booking-submit" disabled>Bekreft bestilling</button>
+          </form>
+
+          <div class="booking-success" id="booking-success">
+            <div class="check" aria-hidden="true">✓</div>
+            <strong class="ok-title">Ordre mottatt</strong>
+            <p style="margin-top:6px" id="booking-success-detail">Takk! Vi har registrert bestillingen din (demo). På en ferdig side får du bekreftelse fra Fagerborg Renseri Jessheim.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANMELDELSER — real Google only (omit invented numbers) -->
+<section id="anmeldelser">
+  <div class="wrap">
+    <div class="kicker" data-animate>Google-anmeldelser</div>
+    <h2 data-animate style="font-size:clamp(1.8rem,3.6vw,2.6rem)">Synlige Google-anmeldelser</h2>
+    <p class="lead" data-animate style="margin-top:14px">Scout flagget <strong style="color:#fff">svak Google-profil</strong> — ingen solid offentlig stjerne-/antall-telling verifisert. Derfor viser vi ikke oppdiktede Google-tall her — bare lenke til Maps-søk, og Review Loop-flyten under.</p>
+    <div class="google-badge" data-animate>
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      <span>Google-profil — tall ikke verifisert</span>
+    </div>
+    <div class="reviews-grid stagger">
+      <article class="review-card" data-animate>
+        <div class="review-stars" aria-label="Eksempel">★★★★★</div>
+        <blockquote>«Eksempel på svar-format — ikke en ekte Google-sitat. Når dere har synlige anmeldelser, synliggjør vi dem her.»</blockquote>
+        <cite>Mal · ikke hentet fra Google</cite>
+        <div class="review-reply"><strong>Svar fra Fagerborg Renseri Jessheim AS:</strong> Takk — vi følger opp privat når noe kan bli bedre.</div>
+      </article>
+      <article class="review-card" data-animate>
+        <div class="review-stars" aria-label="Eksempel">★★★★★</div>
+        <blockquote>«Eksempel — synliggjør ekte anmeldelser når profilen er solid.»</blockquote>
+        <cite>Mal · ikke hentet fra Google</cite>
+        <div class="review-reply"><strong>Svar fra Fagerborg Renseri Jessheim AS:</strong> Velkommen til Veiberggata 2.</div>
+      </article>
+    </div>
+    <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap" data-animate>
+      <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=Fagerborg+Jessheim+renseri+Veiberggata+2" target="_blank" rel="noopener noreferrer">Søk / legg igjen anmeldelse på Google</a>
+      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Fagerborg+Jessheim+renseri+Veiberggata+2" target="_blank" rel="noopener noreferrer">Åpne Google Maps-søk</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEW LOOP SMS 1–5 -->
+<section id="anmeldelse-flyt" class="dark-band">
+  <div class="wrap">
+    <div class="kicker" data-animate>Etter ferdig jobb</div>
+    <h2 data-animate style="font-size:clamp(1.8rem,3.6vw,2.6rem)">Slik ber vi om tilbakemelding — uten å sende misfornøyde til Google</h2>
+    <p class="lead" data-animate style="margin-top:14px">Kort, vanlig norsk. Først en privat SMS. Så Google bare når kunden er fornøyd.</p>
+    <div class="flow-steps stagger">
+      <div class="flow-step" data-animate>
+        <b>1</b>
+        <h3 style="margin:0 0 8px;font-size:1.05rem">SMS først</h3>
+        <p>Etter jobb får kunden en SMS: «Hvordan var service og resultat? Svar 1–5.» E-post bare hvis vi mangler mobil.</p>
+      </div>
+      <div class="flow-step" data-animate>
+        <b>2</b>
+        <h3 style="margin:0 0 8px;font-size:1.05rem">Svar 4 eller 5</h3>
+        <p>Vi ber om en Google-anmeldelse og sender direkte lenke til profilen på Maps.</p>
+        <p style="margin-top:12px"><a class="btn btn-primary btn-sm" href="https://www.google.com/maps/place/Sk%C3%B8yen+Renseri+AS/@59.9259375,10.67462,17z" target="_blank" rel="noopener noreferrer">Legg igjen anmeldelse</a></p>
+      </div>
+      <div class="flow-step" data-animate>
+        <b>3</b>
+        <h3 style="margin:0 0 8px;font-size:1.05rem">Svar 1–3</h3>
+        <p>Ingen Google-lenke. Dere får beskjed med en gang, og kunden får privat oppfølging — hva gikk galt, og hvordan vi kan rette det.</p>
+      </div>
+    </div>
+    <div class="flow-note" data-animate>Poenget: fornøyde kunder synes på Google. Misfornøyde får hjelp privat — ikke offentlig støy.</div>
+  </div>
+</section>
+
+<!-- NIGHT RESCUE / kveld -->
+<section id="kveld" class="night-band">
+  <div class="wrap night-inner">
+    <div>
+      <div class="night-pill" data-animate>🌙 Kveld · Night Rescue</div>
+      <h2 data-animate style="font-size:clamp(1.8rem,3.6vw,2.6rem)">Ringer du etter stengetid?</h2>
+      <p class="lead" data-animate style="margin-top:14px">Åpningstider: Man–ons/fre 10–17 · tor 11–18 · lør 10–14. Utenom åpningstid skal henvendelser ikke bare forsvinne i personsvar.</p>
+      <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap" data-animate>
+        <a class="btn btn-primary btn-lg" href="tel:+4747457477">Ring 474 57 477</a>
+        <a class="btn btn-ghost btn-lg" href="#booking">Book tid</a>
+        <button type="button" class="btn btn-ghost btn-lg" id="open-chat-kveld">Åpne chat</button>
+      </div>
+    </div>
+    <div class="night-card" data-animate="from-right">
+      <h3 style="margin-bottom:14px;font-size:1.1rem">Slik fungerer kvelden</h3>
+      <ul>
+        <li>Chat er åpen — legg igjen hva du trenger, vi følger opp.</li>
+        <li>Ubesvarte anrop følges opp — du blir ikke glemt.</li>
+        <li>Book tid for innlevering i butikk når som helst — velg dag og tid.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- OM OSS -->
+<section id="om-oss">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="kicker" data-animate>Om oss</div>
+        <h2 data-animate style="font-size:clamp(1.8rem,3.6vw,2.6rem)">Velkommen til Fagerborg Renseri Jessheim</h2>
+        <p class="lead" data-animate style="margin-top:14px">Fagerborg Renseri Jessheim er et renseri hos Fagerborg Jessheim som utfører rens og vask av alle typer klær, duker, sengetøy, gardiner og tepper. Vi ligger et steinkast fra Hoff buss og T-bane. Kommer du med bil, er det parkering — og du kan ved behov parkere utenfor lokalet om du har mye og tunge tekstiler.</p>
+        <ul class="checklist stagger">
+          <li data-animate>Adresse: Veiberggata 2, 2050 Jessheim</li>
+          <li data-animate>Åpningstider: Man–ons/fre 10–17 · tor 11–18 · lør 10–14</li>
+          <li data-animate>Telefon: <a href="tel:+4747457477" style="color:#ffb4b4">474 57 477</a> · <a href="mailto:kontakt@jessheimrenseri.no" style="color:#ffb4b4">kontakt@jessheimrenseri.no</a></li>
+          <li data-animate>Org.nr. 934 547 470</li>
+        </ul>
+      </div>
+      <img data-animate="from-right" src="assets/hero.jpg" alt="Fagerborg Renseri Jessheim" loading="lazy">
+    </div>
+    <div class="gallery-grid stagger" style="margin-top:56px" aria-label="Fra butikken">
+      <img data-animate src="assets/gallery-1.jpg" alt="" loading="lazy">
+      <img data-animate src="assets/gallery-2.jpg" alt="" loading="lazy">
+      <img data-animate src="assets/gallery-3.jpg" alt="" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT / forespørsel -->
+<section id="kontakt" class="dark-band">
+  <div class="wrap">
+    <div class="kicker" data-animate>Kontakt</div>
+    <h2 data-animate style="font-size:clamp(1.8rem,3.6vw,2.6rem)">Ring, chat eller send forespørsel</h2>
+    <p class="lead" data-animate style="margin-top:14px">Alt er klikkbart — telefon, e-post og bestilling.</p>
+    <div class="contact-grid">
+      <form id="bestill" data-animate="from-left">
+        <div class="form-row"><label for="f-navn">Navn</label><input id="f-navn" required placeholder="Ditt navn" autocomplete="name"></div>
+        <div class="form-row"><label for="f-tlf">Telefon</label><input id="f-tlf" type="tel" required placeholder="Mobilnummer" autocomplete="tel"></div>
+        <div class="form-row"><label for="f-need">Hva trenger du?</label><textarea id="f-need" rows="4" required placeholder="F.eks. rens av dress, dyner, skjorteabonnement, bedriftsavtale …"></textarea></div>
+        <button type="submit" class="btn btn-primary btn-block">Send forespørsel</button>
+        <div class="form-ok" id="formOk">Takk — vi følger opp snart. (Utkast) På en ferdig side går forespørselen rett til Fagerborg Renseri Jessheim.</div>
+      </form>
+      <div class="contact-info stagger" data-animate="from-right">
+        <div class="item"><div class="ic">📞</div><div><b>Telefon</b><span><a href="tel:+4747457477">474 57 477</a></span></div></div>
+        <div class="item"><div class="ic">✉️</div><div><b>E-post</b><span><a href="mailto:kontakt@jessheimrenseri.no">kontakt@jessheimrenseri.no</a></span></div></div>
+        <div class="item"><div class="ic">📍</div><div><b>Adresse</b><span>Veiberggata 2, 2050 Jessheim</span></div></div>
+        <div class="item"><div class="ic">🕒</div><div><b>Åpningstider</b><span>Man–ons/fre 10–17 · tor 11–18 · lør 10–14</span></div></div>
+        <div class="item"><div class="ic">💬</div><div><b>Chat</b><span><button type="button" id="open-chat-contact" style="background:none;border:none;color:#ffb4b4;font:inherit;cursor:pointer;padding:0;text-decoration:underline">Åpne chat</button> — også på kvelden</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="margin-bottom:14px"><img src="assets/logo.png" alt="Fagerborg Renseri Jessheim" width="44" height="44"><span>Fagerborg Renseri Jessheim</span></div>
+        <p>Rens og vask — Veiberggata 2, 2050 Jessheim.</p>
+        <p style="margin-top:12px">Org.nr. 934 547 470</p>
+        <p style="margin-top:12px">
+          <a href="https://www.facebook.com/people/Sk%C3%B8yen-Renseri/61571316700919/" target="_blank" rel="noopener noreferrer">Facebook</a>
+          ·
+          <a href="https://www.instagram.com/skoyen_renseri/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </p>
+      </div>
+      <div>
+        <h5>Snarveier</h5>
+        <ul>
+          <li><a href="#tjenester">Tjenester</a></li>
+          <li><a href="#booking">Book tid</a></li>
+          <li><a href="#anmeldelser">Anmeldelser</a></li>
+          <li><a href="#kveld">Kveld</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Kontakt</h5>
+        <ul>
+          <li><a href="tel:+4747457477">474 57 477</a></li>
+          <li><a href="mailto:kontakt@jessheimrenseri.no">kontakt@jessheimrenseri.no</a></li>
+          <li>Veiberggata 2, 2050 Jessheim</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="footer-disclaimer">Utkast fra Framvind — ikke offisiell side.</span>
+      <span><a href="https://skoyenrenseri.no/" rel="noopener">Se dagens side</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Vipps demo modal (no real API) -->
+<div class="vipps-overlay" id="vipps-overlay" role="dialog" aria-modal="true" aria-label="Vipps demo">
+  <div class="vipps-modal">
+    <div class="vm-head">
+      <div class="vm-logo"><img src="assets/vipps-logo-white.svg" alt="Vipps" width="96" height="24"></div>
+      <button type="button" class="vm-x" id="vipps-close" aria-label="Lukk">×</button>
+    </div>
+    <div class="vm-body">
+      <div id="vipps-pay-ui">
+        <div style="font-weight:700;font-size:.95rem">Fagerborg Renseri Jessheim</div>
+        <div class="vm-amount" id="vipps-amount">0 kr</div>
+        <div class="vm-sub">Demo-betaling — ingen penger trekkes</div>
+        <input class="vm-phone" id="vipps-phone" type="tel" inputmode="tel" placeholder="Mobilnummer" autocomplete="tel">
+        <button type="button" class="vipps-pay-btn" id="vipps-confirm"><img src="assets/vipps-logo-white.svg" alt=""> Bekreft</button>
+        <p class="vm-note">Dette er bare en demo. Ingen ekte Vipps-betaling.</p>
+      </div>
+      <div class="vm-done" id="vipps-done">
+        <div class="big" aria-hidden="true">✓</div>
+        <strong style="font-size:1.1rem">Betaling bekreftet (demo)</strong>
+        <p style="margin-top:8px;color:#555;font-size:.9rem">Du kan lukke og fullføre bestillingen.</p>
+        <button type="button" class="vm-confirm" id="vipps-done-ok" style="margin-top:16px">Fortsett</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky first-screen convert on mobile -->
+<div class="sticky-cta" aria-label="Hurtigkontakt">
+  <a class="btn btn-ghost" href="tel:+4747457477">Ring</a>
+  <a class="btn btn-primary" href="#booking">Bestill</a>
+</div>
+
+<!-- Dismissible chat FAB -->
+<button id="chat-fab" aria-label="Åpne chat" aria-expanded="false">💬</button>
+<div id="chat-box" role="dialog" aria-label="Chat med Fagerborg Renseri Jessheim">
+  <div class="chat-head">
+    <span class="dot"></span>
+    <div><b>Chat med Fagerborg Renseri Jessheim</b><span>Utkast — svarer med en gang</span></div>
+    <button type="button" class="chat-x" id="chat-close" aria-label="Lukk chat">×</button>
+  </div>
+  <div class="chat-log" id="chatLog">
+    <div class="msg bot">Hei! Velkommen til Fagerborg Renseri Jessheim (utkast-chat).</div>
+    <div class="msg bot">For å hjelpe deg raskt: <strong>hva trenger du?</strong> F.eks. rens av dress, dyner, skjorteabonnement, bedriftsavtale …</div>
+  </div>
+  <div class="chat-input">
+    <input id="chatInput" placeholder="Skriv en melding…" autocomplete="off">
+    <button id="chatSend" aria-label="Send">➤</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const observer=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');if(e.target.classList.contains('stagger')){e.target.querySelectorAll('[data-animate]').forEach(c=>c.classList.add('visible'));}}})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('[data-animate],.stagger').forEach(el=>observer.observe(el));
+
+  window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
+  document.getElementById('burger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});document.getElementById('navLinks').classList.remove('open');}}));
+
+  // Contact form
+  document.getElementById('bestill').addEventListener('submit',e=>{
+    e.preventDefault();
+    if(!e.target.checkValidity()){e.target.reportValidity();return;}
+    document.getElementById('formOk').classList.add('show');
+    e.target.querySelector('button[type=submit]').textContent='Sendt ✓';
+  });
+
+  // Chat dismissible + qualifying
+  const fab=document.getElementById('chat-fab'),box=document.getElementById('chat-box'),log=document.getElementById('chatLog'),inp=document.getElementById('chatInput');
+  function openChat(){box.classList.add('open');fab.classList.add('hidden');fab.setAttribute('aria-expanded','true');inp.focus();}
+  function closeChat(){box.classList.remove('open');fab.classList.remove('hidden');fab.setAttribute('aria-expanded','false');}
+  fab.addEventListener('click',()=>{if(box.classList.contains('open'))closeChat();else openChat();});
+  document.getElementById('chat-close').addEventListener('click',closeChat);
+  ['open-chat-kveld','open-chat-contact'].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('click',openChat);});
+
+  let chatStep=0;
+  function addBot(html){const d=document.createElement('div');d.className='msg bot';d.innerHTML=html;log.appendChild(d);log.scrollTop=log.scrollHeight;}
+  function send(){
+    const t=inp.value.trim();if(!t)return;
+    const u=document.createElement('div');u.className='msg user';u.textContent=t;log.appendChild(u);inp.value='';log.scrollTop=log.scrollHeight;
+    setTimeout(()=>{
+      if(chatStep===0){addBot('Takk — notert. Hvor <strong>haster</strong> det? Velg: i dag / denne uken / bare et tilbud.');chatStep=1;}
+      else if(chatStep===1){addBot('Skjønner. Hva er beste <strong>telefonnummer</strong> (eller e-post) så vi kan følge opp?');chatStep=2;}
+      else if(chatStep===2){addBot('Takk! Vi har det vi trenger. Innlevering skjer i butikk på Veiberggata 2. (Utkast) På en ferdig side går dette rett til Fagerborg Renseri Jessheim — eller ring <a href="tel:+4747457477">474 57 477</a>.');chatStep=3;}
+      else{addBot('Mottatt. Ring gjerne <a href="tel:+4747457477">474 57 477</a> eller <a href="#booking">book tid</a> for innlevering i butikk.');}
+    },450);
+  }
+  document.getElementById('chatSend').addEventListener('click',send);
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter')send();});
+
+  // Booking: products + calendar + payment (in-store drop-off)
+  const PRODUCTS = [
+    {id:'skjorte', name:'Skjorte', price:99},
+    {id:'bluse', name:'Bluse', price:149},
+    {id:'dress', name:'Dress (jakke+bukse)', price:549},
+    {id:'dressjakke', name:'Dressjakke', price:299},
+    {id:'bukse', name:'Bukse / jeans', price:249},
+    {id:'vest', name:'Vest', price:149},
+    {id:'kjole', name:'Kjole', price:399},
+    {id:'skjort', name:'Skjørt', price:229},
+    {id:'genser', name:'Genser / kofte', price:189},
+    {id:'ytterjakke', name:'Ytterjakke / frakk', price:449},
+    {id:'dunjakke', name:'Dunjakke', price:499},
+    {id:'gardiner', name:'Gardiner (per lengde)', price:349},
+    {id:'duk', name:'Duk', price:179},
+    {id:'slips', name:'Slips / sløyfe', price:79}
+  ];
+  const qty = Object.fromEntries(PRODUCTS.map(p => [p.id, 0]));
+  let vippsPaid = false;
+
+  const productsEl = document.getElementById('products');
+  const grandEl = document.getElementById('grand-total');
+  const summaryEl = document.getElementById('booking-summary');
+  const submitBtn = document.getElementById('booking-submit');
+  const errEl = document.getElementById('booking-err');
+  function fmt(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+
+  function cartItems(){
+    return PRODUCTS.filter(p => qty[p.id] > 0).map(p => ({
+      ...p, q: qty[p.id], line: qty[p.id] * p.price
+    }));
+  }
+  function cartTotal(){
+    return cartItems().reduce((s, i) => s + i.line, 0);
+  }
+
+  function renderProducts(){
+    productsEl.innerHTML = '';
+    PRODUCTS.forEach(p => {
+      const q = qty[p.id];
+      const row = document.createElement('div');
+      row.className = 'product-row';
+      row.innerHTML =
+        '<div class="product-meta">' +
+          '<div class="pname">' + p.name + '</div>' +
+          '<div class="pprice">' + p.price + ' kr</div>' +
+          '<div class="pline">' + (q ? (q + ' × ' + p.price + ' = ' + fmt(q * p.price) + ' kr') : '') + '</div>' +
+        '</div>' +
+        '<div class="stepper" data-id="' + p.id + '">' +
+          '<button type="button" data-act="minus" aria-label="Fjern en ' + p.name + '"' + (q === 0 ? ' disabled' : '') + '>−</button>' +
+          '<span class="qty" aria-live="polite">' + q + '</span>' +
+          '<button type="button" data-act="plus" aria-label="Legg til ' + p.name + '">+</button>' +
+        '</div>';
+      productsEl.appendChild(row);
+    });
+  }
+
+  productsEl.addEventListener('click', e => {
+    const btn = e.target.closest('button[data-act]');
+    if (!btn) return;
+    const stepp = btn.closest('.stepper');
+    const id = stepp.getAttribute('data-id');
+    const act = btn.getAttribute('data-act');
+    if (act === 'plus') qty[id] += 1;
+    else qty[id] = Math.max(0, qty[id] - 1);
+    if (qty[id] === 0 && document.querySelector('input[name="payment"]:checked')?.value === 'vipps') {
+      // keep vippsPaid if still paying later; reset if cart emptied
+    }
+    if (cartTotal() === 0) vippsPaid = false;
+    renderProducts();
+    updateBookingUI();
+  });
+
+  const months = [
+    {y:2026,m:8,label:'September 2026',start:1,days:30},
+    {y:2026,m:9,label:'Oktober 2026',start:3,days:31}
+  ];
+  let mi = 0, selectedDay = null, selectedTime = null;
+  const calDays = document.getElementById('cal-days');
+  const calLabel = document.getElementById('cal-label');
+
+  function renderCal(){
+    const info = months[mi];
+    calLabel.textContent = info.label;
+    calDays.innerHTML = '';
+    for (let i = 0; i < info.start; i++) {
+      const e = document.createElement('span');
+      e.className = 'cal-empty';
+      calDays.appendChild(e);
+    }
+    for (let d = 1; d <= info.days; d++) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'cal-day';
+      btn.textContent = String(d);
+      const wd = (info.start + d - 1) % 7;
+      if (wd === 6) btn.classList.add('cal-sun');
+      if (selectedDay && selectedDay.mi === mi && selectedDay.d === d) btn.classList.add('selected');
+      btn.addEventListener('click', () => {
+        selectedDay = {mi: mi, d: d, label: months[mi].label};
+        renderCal();
+        updateBookingUI();
+      });
+      calDays.appendChild(btn);
+    }
+  }
+
+  document.getElementById('cal-prev').addEventListener('click', () => {
+    mi = Math.max(0, mi - 1);
+    renderCal();
+  });
+  document.getElementById('cal-next').addEventListener('click', () => {
+    mi = Math.min(months.length - 1, mi + 1);
+    renderCal();
+  });
+  document.querySelectorAll('.slot').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.slot').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedTime = btn.getAttribute('data-time');
+      updateBookingUI();
+    });
+  });
+
+  function payment(){
+    const el = document.querySelector('input[name="payment"]:checked');
+    return el ? el.value : 'senere';
+  }
+
+  document.querySelectorAll('input[name="payment"]').forEach(r => {
+    r.addEventListener('change', () => {
+      if (payment() !== 'vipps') vippsPaid = false;
+      updateBookingUI();
+    });
+  });
+  document.getElementById('b-name').addEventListener('input', updateBookingUI);
+  document.getElementById('b-phone').addEventListener('input', updateBookingUI);
+
+  // Vipps demo
+  const vippsOverlay = document.getElementById('vipps-overlay');
+  const vippsAmount = document.getElementById('vipps-amount');
+  const vippsPayUi = document.getElementById('vipps-pay-ui');
+  const vippsDone = document.getElementById('vipps-done');
+
+  function openVipps(){
+    vippsAmount.textContent = fmt(cartTotal()) + ' kr';
+    vippsPayUi.style.display = 'block';
+    vippsDone.classList.remove('show');
+    const phone = document.getElementById('b-phone').value.trim();
+    document.getElementById('vipps-phone').value = phone || '';
+    vippsOverlay.classList.add('open');
+  }
+  function closeVipps(){ vippsOverlay.classList.remove('open'); }
+
+  document.getElementById('vipps-close').addEventListener('click', closeVipps);
+  vippsOverlay.addEventListener('click', e => { if (e.target === vippsOverlay) closeVipps(); });
+  document.getElementById('vipps-confirm').addEventListener('click', () => {
+    const ph = document.getElementById('vipps-phone').value.trim();
+    if (!ph) { document.getElementById('vipps-phone').focus(); return; }
+    vippsPayUi.style.display = 'none';
+    vippsDone.classList.add('show');
+    vippsPaid = true;
+  });
+  document.getElementById('vipps-done-ok').addEventListener('click', () => {
+    closeVipps();
+    updateBookingUI();
+  });
+
+  function showErr(msg){
+    if (!msg) { errEl.classList.remove('show'); errEl.textContent = ''; return; }
+    errEl.textContent = msg;
+    errEl.classList.add('show');
+  }
+
+  function canConfirm(){
+    const items = cartItems();
+    if (!items.length) return {ok:false, msg:'Velg minst én vare.'};
+    if (!selectedDay || !selectedTime) return {ok:false, msg:'Velg både dag og tid.'};
+    const name = document.getElementById('b-name').value.trim();
+    const phone = document.getElementById('b-phone').value.trim();
+    if (!name || !phone) return {ok:false, msg:'Fyll inn navn og telefon.'};
+    if (payment() === 'vipps' && !vippsPaid) return {ok:false, msg:'Fullfør Vipps-demo først (eller bytt til betaling senere).'};
+    return {ok:true, msg:''};
+  }
+
+  function updateBookingUI(){
+    grandEl.textContent = fmt(cartTotal());
+    const items = cartItems();
+    const pay = payment();
+    let html = '';
+    if (!items.length) {
+      html = '<strong>Ingen varer valgt ennå</strong><div class="sum-meta">Velg varer, dag og tid for å fortsette.</div>';
+    } else {
+      html = '<strong>Dine varer</strong><ul>' +
+        items.map(i => '<li><span>' + i.name + ' × ' + i.q + '</span><span>' + fmt(i.line) + ' kr</span></li>').join('') +
+        '</ul>';
+      html += '<div class="sum-total"><span>Totalt (eksempel)</span><span>' + fmt(cartTotal()) + ' kr</span></div>';
+      html += '<div class="sum-meta">';
+      if (selectedDay && selectedTime) {
+        html += '<div><strong>Tid for innlevering:</strong> ' + selectedDay.d + '. ' + selectedDay.label + ' kl. ' + selectedTime + '</div>';
+      } else if (selectedDay) {
+        html += '<div><strong>Dag:</strong> ' + selectedDay.d + '. ' + selectedDay.label + ' — velg tid</div>';
+      } else {
+        html += '<div>Velg dag og tid for innlevering i butikk</div>';
+      }
+      html += '<div><strong>Innlevering i butikk</strong> — Veiberggata 2</div>';
+      if (pay === 'vipps') {
+        html += '<div><strong>Betaling:</strong> Vipps nå' + (vippsPaid ? ' ✓ (demo)' : ' — ikke bekreftet') + '</div>';
+      } else {
+        html += '<div><strong>Betaling:</strong> I butikk</div>';
+      }
+      html += '</div>';
+    }
+    summaryEl.innerHTML = html;
+
+    const check = canConfirm();
+    // Enable submit when basics present; Vipps opens on click if needed
+    const basicsOk = items.length && selectedDay && selectedTime &&
+      document.getElementById('b-name').value.trim() &&
+      document.getElementById('b-phone').value.trim();
+    submitBtn.disabled = !basicsOk;
+    if (basicsOk) showErr('');
+  }
+
+  document.getElementById('booking-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const check = canConfirm();
+    if (!check.ok) {
+      if (payment() === 'vipps' && !vippsPaid && cartItems().length && selectedDay && selectedTime) {
+        showErr('');
+        openVipps();
+        return;
+      }
+      showErr(check.msg.charAt(0).toUpperCase() + check.msg.slice(1));
+      return;
+    }
+    if (!e.target.checkValidity()) { e.target.reportValidity(); return; }
+
+    const items = cartItems();
+    const pay = payment();
+    let detail = 'Varer: ' + items.map(i => i.name + ' × ' + i.q).join(', ') +
+      '. Sum: ' + fmt(cartTotal()) + ' kr. ' +
+      selectedDay.d + '. ' + selectedDay.label + ' kl. ' + selectedTime + '. ';
+    detail += 'Innlevering i butikk (Veiberggata 2). ';
+    detail += pay === 'vipps' ? 'Betalt med Vipps (demo).' : 'Betaling i butikk.';
+
+    document.querySelectorAll('#booking-flow .flow-block, #booking-flow .calendar-card').forEach(el => { el.style.display = 'none'; });
+    e.target.style.display = 'none';
+    const ok = document.getElementById('booking-success');
+    document.getElementById('booking-success-detail').textContent = detail + ' (Utkast — ingen ekte ordre sendt.)';
+    ok.classList.add('show');
+    document.getElementById('booking').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  renderProducts();
+  renderCal();
+  updateBookingUI();
+})();
+</script>
+</body>
+</html>
