@@ -349,10 +349,12 @@
     font-size: .88rem; color: var(--muted); white-space: nowrap;
   }
   .svc-blurb {
-    margin-top: .45rem;
+    margin-top: .55rem;
+    margin-bottom: .15rem;
     color: var(--muted);
     font-size: .95rem;
     max-width: 42ch;
+    line-height: 1.45;
   }
   .svc-tags {
     display: flex; flex-wrap: wrap; gap: .55rem .9rem;
@@ -367,6 +369,12 @@
     border-radius: var(--radius);
     padding: 1.5rem;
     box-shadow: var(--shadow-sm);
+    isolation: isolate;
+  }
+  .price-band .eyebrow {
+    display: block;
+    margin: 0 0 .85rem;
+    line-height: 1.2;
   }
   .price-band .eyebrow { margin-bottom: .75rem; }
   .price-list {
@@ -544,8 +552,27 @@
     }
     .svc-card.featured {
       grid-row: 1 / span 2;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      align-self: stretch;
     }
-    .svc-card.featured .svc-media { height: 100%; min-height: 520px; aspect-ratio: auto; }
+    .svc-card.featured .svc-media {
+      flex: 1 1 auto;
+      min-height: 280px;
+      height: auto;
+      aspect-ratio: auto;
+    }
+    .svc-card.featured .svc-meta,
+    .svc-card.featured .svc-title-row,
+    .svc-card.featured .svc-blurb,
+    .svc-card.featured .svc-tags {
+      flex: 0 0 auto;
+      position: relative;
+      z-index: 1;
+      background: var(--cream, #F2F0E6);
+    }
+    .price-band { position: relative; z-index: 2; clear: both; }
     .price-list { grid-template-columns: repeat(3, 1fr); }
     .trust-row { grid-template-columns: repeat(3, 1fr); }
     .contact-split { grid-template-columns: 1.1fr .9fr; align-items: stretch; }
@@ -932,7 +959,7 @@
               <h3>Skjorteabonnement <span class="arr" aria-hidden="true">↗</span></h3>
               <span class="svc-days">Avtale</span>
             </div>
-            h stk/12 mnd = 2750 kr (55/skjorte) eller 100 stk = 4000 kr (40/skjorte).</p>
+            <p class="svc-blurb">h stk/12 mnd = 2750 kr (55/skjorte) eller 100 stk = 4000 kr (40/skjorte).</p>
           </article>
 
           <article class="svc-card">
@@ -949,7 +976,7 @@
           </article>
         </div>
 
-        <div class="price-band" id="prices" style="margin-top:2.5rem" role="note">
+        <div class="price-band" id="prices" style="margin-top:2.5rem;position:relative;z-index:2" role="note">
           <p class="eyebrow">PRISER</p>
           <ul class="price-list" id="priceList"></ul>
           <p class="price-note">Priser FRA moldekemrens.no. Express 1–2 dager: +25 %.</p>
